@@ -1823,3 +1823,26 @@ main {
     padding-bottom: 85px !important; /* Generous breathing room so button never overlaps note */
   }
 }
+
+
+/* Clean Footer Visit Counter */
+.footer-visit-counter {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  color: #fef08a;
+  margin-left: 8px;
+  border: 1px solid rgba(254, 240, 138, 0.25);
+}
+.pulse-dot-green {
+  width: 7px;
+  height: 7px;
+  background: #22c55e;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 6px #22c55e;
+}
