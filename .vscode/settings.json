@@ -1,0 +1,24 @@
+﻿{
+  "liveServer.settings.root": "/",
+  "liveServer.settings.port": 5500,
+  "liveServer.settings.wait": 100,
+  "liveServer.settings.ignoreFiles": [
+    ".vscode/**",
+    ".git/**",
+    "admin-app/**",
+    "data/backups/**"
+  ],
+  "liveServer.settings.donotShowInfoMsg": true,
+  "liveServer.settings.donotVerifyTags": true,
+  
+  "fiveServer.port": 5555,
+  "fiveServer.root": "/",
+  "fiveServer.open": "index.html",
+  "fiveServer.ignore": [
+    ".git",
+    "admin-app",
+    "data/backups"
+  ],
+  "fiveServer.highlight": false,
+  "fiveServer.injectBody": true
+}
