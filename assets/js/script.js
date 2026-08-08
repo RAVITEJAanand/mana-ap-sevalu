@@ -804,8 +804,7 @@ function initBackToTopAndKeyboardShortcuts() {
   const shareBtn = document.getElementById('shareGuideWhatsAppBtn');
   if (shareBtn) {
     const title = document.getElementById('guideDetailTitle') ? document.getElementById('guideDetailTitle').textContent : 'మన AP సేవలు గైడ్';
-    const text = encodeURIComponent('🏛️ ' + title + ' పూర్తి వివరాలు & దరఖాస్తు విధానం ఇక్కడ చూడండి:
-👉 ' + window.location.href);
+    const text = encodeURIComponent('🏛️ ' + title + ' పూర్తి వివరాలు & దరఖాస్తు విధానం ఇక్కడ చూడండి:\n👉 ' + window.location.href);
     shareBtn.href = 'https://api.whatsapp.com/send?text=' + text;
   }
 }
