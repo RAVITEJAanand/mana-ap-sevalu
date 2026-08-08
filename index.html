@@ -52,7 +52,7 @@
         <div class="brand-info">
           <div class="site-title">
             <span>మన AP సేవలు</span>
-            <span style="font-size: 0.78rem; background: var(--secondary); color:#fff; padding: 1px 6px; border-radius: 4px; font-weight: 700;">LIVE</span>
+            <span class="badge-live-tag">LIVE</span>
           </div>
           <div class="site-tagline">ఆంధ్రప్రదేశ్ డిజిటల్ పౌర సేవా మిత్ర (Mana AP Sevalu)</div>
         </div>
@@ -162,7 +162,7 @@
 
         <!-- Quick Tags -->
         <div class="quick-search-tags">
-          <span style="opacity: 0.9;">ప్రముఖ శోధనలు:</span>
+          <span class="opacity-90">ప్రముఖ శోధనలు:</span>
           <a href="pages/service-detail.html?id=aadhaar" class="quick-tag">ఆధార్ కార్డు</a>
           <a href="pages/service-detail.html?id=ration" class="quick-tag">బియ్యం కార్డు</a>
           <a href="pages/service-detail.html?id=rythu-bharosa" class="quick-tag">రైతు భరోసా</a>
@@ -233,53 +233,78 @@
     </div>
 
     <!-- Smart Citizen Eligibility Quick Calculator Tool -->
-    <div style="background: var(--bg-card); border: 2px solid var(--border-light); border-radius: var(--radius-lg); padding: 28px; margin: 32px 0; box-shadow: var(--shadow-sm);">
-      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 16px;">
+    <div class="eligibility-tool-card">
+      <div class="eligibility-header-row">
         <div>
-          <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--primary); display: flex; align-items: center; gap: 8px;">
+          <h3 class="eligibility-tool-title">
             <span>🧮</span>
             <span>స్మార్ట్ సిటిజన్ అర్హత క్విక్ చెకర్ (Instant Eligibility Tool)</span>
           </h3>
-          <p style="font-size: 0.88rem; color: var(--text-secondary); margin-top: 4px;">
+          <p class="eligibility-tool-subtitle">
             మీ వయస్సు, కుటుంబ కార్డు మరియు వృత్తి వివరాలను ఎంచుకుని మీకు వర్తించే ప్రభుత్వ పథకాలను తక్షణమే తెలుసుకోండి.
           </p>
         </div>
-        <div id="autoDeadlineBadge" style="display: flex; align-items: center; gap: 6px; font-size: 0.82rem; background: var(--bg-subtle); padding: 6px 12px; border-radius: 20px; border: 1px solid var(--border-light);">
+        <div id="autoDeadlineBadge" class="eligibility-deadline-badge">
           <!-- Live Auto Deadlines injected here -->
         </div>
       </div>
 
-      <form id="citizenEligibilityForm" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; align-items: end;">
-        <div>
-          <label style="display: block; font-size: 0.82rem; font-weight: 700; margin-bottom: 6px; color: var(--text-secondary);">మీ వయస్సు (Age):</label>
-          <input type="number" id="calcAge" class="global-search-input" style="border: 1px solid var(--border-medium); border-radius: var(--radius-sm); padding: 10px; width: 100%;" value="28" min="1" max="110">
+      <form id="citizenEligibilityForm" class="eligibility-form-grid">
+        <div class="eligibility-field">
+          <label for="calcAge" class="eligibility-label">మీ వయస్సు (Age):</label>
+          <input 
+            type="number" 
+            id="calcAge" 
+            class="global-search-input eligibility-input" 
+            value="28" 
+            min="1" 
+            max="110"
+            placeholder="28"
+            title="Enter Age in Years"
+            aria-label="Enter Age"
+          >
         </div>
-        <div>
-          <label style="display: block; font-size: 0.82rem; font-weight: 700; margin-bottom: 6px; color: var(--text-secondary);">మీ వృత్తి / వర్గం:</label>
-          <select id="calcOccupation" class="search-category-select" style="max-width: 100%; width: 100%; border: 1px solid var(--border-medium); height: 44px;">
+        <div class="eligibility-field">
+          <label for="calcOccupation" class="eligibility-label">మీ వృత్తి / వర్గం:</label>
+          <select 
+            id="calcOccupation" 
+            class="search-category-select eligibility-select" 
+            title="Select Occupation or Category"
+            aria-label="Select Occupation"
+          >
             <option value="farmer">రైతు / కౌలు రైతు</option>
             <option value="student">విద్యార్థి (Student / Scholar)</option>
             <option value="jobseeker">నిరుద్యోగి / ఉద్యోగార్థి</option>
             <option value="other">ఇతర వృత్తులు / వ్యాపారం</option>
           </select>
         </div>
-        <div>
-          <label style="display: block; font-size: 0.82rem; font-weight: 700; margin-bottom: 6px; color: var(--text-secondary);">వ్యవసాయ భూమి వివరాలు:</label>
-          <select id="calcLand" class="search-category-select" style="max-width: 100%; width: 100%; border: 1px solid var(--border-medium); height: 44px;">
+        <div class="eligibility-field">
+          <label for="calcLand" class="eligibility-label">వ్యవసాయ భూమి వివరాలు:</label>
+          <select 
+            id="calcLand" 
+            class="search-category-select eligibility-select" 
+            title="Select Agricultural Land Details"
+            aria-label="Select Land Details"
+          >
             <option value="owns_land">స్వంత భూమి ఉంది</option>
             <option value="tenant">కౌలు భూమి (Tenant Farmer)</option>
             <option value="no_land">భూమి లేదు (Non-Agricultural)</option>
           </select>
         </div>
-        <div>
-          <label style="display: block; font-size: 0.82rem; font-weight: 700; margin-bottom: 6px; color: var(--text-secondary);">బియ్యం కార్డు (White Card)?</label>
-          <select id="calcCard" class="search-category-select" style="max-width: 100%; width: 100%; border: 1px solid var(--border-medium); height: 44px;">
+        <div class="eligibility-field">
+          <label for="calcCard" class="eligibility-label">బియ్యం కార్డు (White Card)?</label>
+          <select 
+            id="calcCard" 
+            class="search-category-select eligibility-select" 
+            title="Select Ration Rice Card Status"
+            aria-label="Select Rice Card Status"
+          >
             <option value="yes">అవును, బియ్యం కార్డు ఉంది</option>
             <option value="no">లేదు / కొత్తగా అప్లై చేస్తున్నాను</option>
           </select>
         </div>
-        <div>
-          <button type="submit" class="search-submit-btn" style="width: 100%; justify-content: center; height: 44px;">
+        <div class="eligibility-field">
+          <button type="submit" class="search-submit-btn eligibility-submit-btn">
             <span>⚡</span>
             <span>అర్హత చెక్ చేయండి</span>
           </button>

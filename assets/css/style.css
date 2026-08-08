@@ -648,118 +648,103 @@ main {
 }
 
 /* ==========================================================================
-   4. Monetization Ad Slots & Citizen Alert Cards
+   4. Utility Classes & Smart Eligibility Checker Tool
    ========================================================================== */
-.ad-slot-wrapper {
-  margin: 20px 0;
-  text-align: center;
+.badge-live-tag {
+  font-size: 0.78rem;
+  background: var(--secondary);
+  color: #fff;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-weight: 700;
 }
 
-.ad-banner-placeholder {
+.opacity-90 {
+  opacity: 0.9;
+}
+
+.eligibility-tool-card {
   background: var(--bg-card);
-  border: 1px dashed var(--border-medium);
-  border-radius: var(--radius-md);
-  padding: 12px;
-  max-width: 970px;
-  margin: 0 auto;
-  position: relative;
-  min-height: 90px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  border: 2px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  margin: 32px 0;
+  box-shadow: var(--shadow-sm);
 }
 
-.ad-tag-label {
-  position: absolute;
-  top: 4px;
-  right: 8px;
-  font-size: 0.65rem;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.ad-sponsored-content {
+.eligibility-header-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
-  gap: 16px;
   flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
 }
 
-.ad-info-box {
-  text-align: left;
-}
-
-.ad-info-title {
-  font-weight: 700;
-  font-size: 0.92rem;
+.eligibility-tool-title {
+  font-size: 1.3rem;
+  font-weight: 800;
   color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.ad-info-desc {
-  font-size: 0.8rem;
+.eligibility-tool-subtitle {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+.eligibility-deadline-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  background: var(--bg-subtle);
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--border-light);
+}
+
+.eligibility-form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  align-items: end;
+}
+
+.eligibility-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.eligibility-label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin-bottom: 6px;
   color: var(--text-secondary);
 }
 
-/* Telegram / WhatsApp Alert Card */
-.citizen-alert-banner {
-  background: linear-gradient(135deg, #065f46 0%, #047857 100%);
-  color: #fff;
-  padding: 18px 24px;
-  border-radius: var(--radius-lg);
-  margin: 24px 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 16px;
-  box-shadow: var(--shadow-md);
-}
-
-.alert-banner-info h4 {
-  font-size: 1.1rem;
-  font-weight: 800;
-  margin-bottom: 4px;
-}
-
-.alert-banner-info p {
-  font-size: 0.88rem;
-  opacity: 0.95;
-}
-
-.alert-join-btns {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.btn-whatsapp-join {
-  background: #25d366;
-  color: #fff;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 0.86rem;
-  padding: 8px 16px;
+.eligibility-input {
+  border: 1px solid var(--border-medium);
   border-radius: var(--radius-sm);
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+  padding: 10px;
+  width: 100%;
 }
 
-.btn-telegram-join {
-  background: #0088cc;
-  color: #fff;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 0.86rem;
-  padding: 8px 16px;
-  border-radius: var(--radius-sm);
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+.eligibility-select {
+  max-width: 100%;
+  width: 100%;
+  border: 1px solid var(--border-medium);
+  height: 44px;
+}
+
+.eligibility-submit-btn {
+  width: 100%;
+  justify-content: center;
+  height: 44px;
 }
 
 /* ==========================================================================
