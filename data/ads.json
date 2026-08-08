@@ -1,0 +1,49 @@
+{
+  "adsense_enabled": false,
+  "adsense_publisher_id": "ca-pub-0000000000000000",
+  "adsense_slot_header": "1234567890",
+  "adsense_slot_in_article": "0987654321",
+  "banner_1": {
+    "id": "banner_telegram_jobs",
+    "enabled": true,
+    "badge_te": "స్పాన్సర్డ్ / Advertisement",
+    "badge_en": "Sponsored / Advertisement",
+    "title_te": "📢 మీ మొబైల్‌లోనే తాజా ప్రభుత్వ ఉద్యోగాల అలర్ట్స్ పొందండి",
+    "title_en": "📢 Get Latest AP Govt Job & Scheme Alerts on Mobile",
+    "desc_te": "ఉచిత వాట్సాప్ & టెలిగ్రామ్ అలర్ట్స్ గ్రూప్‌లో ఇప్పుడే చేరండి. రోజూ సరికొత్త జీవోలు, నోటిఫికేషన్లు.",
+    "desc_en": "Join our free WhatsApp & Telegram alert channels for instant daily GOs and notifications.",
+    "button_label_te": "ఉచితంగా చేరండి",
+    "button_label_en": "Join for Free",
+    "button_icon": "📱",
+    "target_url": "https://t.me/ManaAPSevalu",
+    "platform": "telegram",
+    "click_count": 342,
+    "last_updated": "2026-08-08T18:30:00.000Z"
+  },
+  "banner_2": {
+    "id": "banner_whatsapp_updates",
+    "enabled": true,
+    "badge_te": "స్పాన్సర్డ్ / Advertisement",
+    "badge_en": "Sponsored / Advertisement",
+    "title_te": "📢 మీ మొబైల్‌లోనే తాజా ప్రభుత్వ అప్‌డేట్స్ & జీవోలు పొందండి",
+    "title_en": "📢 Get Instant AP Welfare Scheme Updates on WhatsApp",
+    "desc_te": "మన AP సేవలు అధికారిక ఉచిత వాట్సాప్ ఛానెల్‌లో చేరి తక్షణ అలర్ట్స్ అందుకోండి.",
+    "desc_en": "Join Mana AP Sevalu Official Free WhatsApp Channel for verified direct welfare updates.",
+    "button_label_te": "ఉచితంగా చేరండి",
+    "button_label_en": "Join on WhatsApp",
+    "button_icon": "💬",
+    "target_url": "https://whatsapp.com/channel/0029VaManaAPSevalu",
+    "platform": "whatsapp",
+    "click_count": 518,
+    "last_updated": "2026-08-08T18:30:00.000Z"
+  },
+  "analytics_targets": {
+    "monthly_target_visitors": 25000,
+    "monthly_target_feedbacks": 500,
+    "monthly_target_clicks": 2000,
+    "content_readiness_pct": 100,
+    "seo_health_score": 100,
+    "performance_mobile_score": 99,
+    "performance_desktop_score": 100
+  }
+}

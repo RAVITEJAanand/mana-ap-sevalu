@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initStickyTocHighlighter();
   initFaqAccordion();
   initCitizenFeedbackSystem();
+  initDynamicPromotionalBanners();
   initBackToTopAndKeyboardShortcuts();
 });
 
@@ -738,4 +739,59 @@ function initBackToTopAndKeyboardShortcuts() {
       }
     });
   }
+}
+
+/* --------------------------------------------------------------------------
+   10. Dynamic Promotional Ad & Social Alert Banners (Synced from data/ads.json)
+   -------------------------------------------------------------------------- */
+function initDynamicPromotionalBanners() {
+  const isEn = (localStorage.getItem('ap_portal_lang') || 'te') === 'en';
+
+  // Determine path to data/ads.json depending on whether on root or /pages/
+  const isPagesSubdir = window.location.pathname.includes('/pages/');
+  const adsJsonPath = isPagesSubdir ? '../data/ads.json' : 'data/ads.json';
+
+  fetch(adsJsonPath)
+    .then(res => res.json())
+    .then(data => {
+      if (!data) return;
+
+      // Banner 1: Top Leaderboard / Telegram Jobs Alert
+      if (data.banner_1) {
+        const b1 = data.banner_1;
+        const b1Containers = document.querySelectorAll('.ad-banner-placeholder');
+        b1Containers.forEach(container => {
+          if (!b1.enabled) {
+            container.style.display = 'none';
+            return;
+          }
+          container.style.display = 'block';
+          
+          const titleEl = container.querySelector('.ad-info-title');
+          const descEl = container.querySelector('.ad-info-desc');
+          const btnEl = container.querySelector('.btn-telegram-join, .btn-whatsapp-join');
+
+          if (titleEl && b1.title_te) {
+            titleEl.textContent = isEn ? (b1.title_en || b1.title_te) : b1.title_te;
+          }
+          if (descEl && b1.desc_te) {
+            descEl.textContent = isEn ? (b1.desc_en || b1.desc_te) : b1.desc_te;
+          }
+          if (btnEl && b1.target_url) {
+            btnEl.href = b1.target_url;
+            const btnSpan = btnEl.querySelector('span:last-child');
+            const btnIcon = btnEl.querySelector('span:first-child');
+            if (btnSpan && b1.button_label_te) {
+              btnSpan.textContent = isEn ? (b1.button_label_en || b1.button_label_te) : b1.button_label_te;
+            }
+            if (btnIcon && b1.button_icon) {
+              btnIcon.textContent = b1.button_icon;
+            }
+          }
+        });
+      }
+    })
+    .catch(() => {
+      // Graceful fallback to static pre-rendered banners
+    });
 }
