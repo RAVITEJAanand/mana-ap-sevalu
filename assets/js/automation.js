@@ -45,6 +45,8 @@ function initAutoDeadlinesTicker() {
   if (!deadlineBadge) return;
 
   const upcomingEvents = [
+    { title_te: "డ్వాక్రా మహిళా ఉత్పత్తుల ఈ-మార్కెట్ లిస్టింగ్", title_en: "DWCRA Women SHG Products Listing", days: 30 },
+    { title_te: "NTR భరోసా పెన్షన్ల దరఖాస్తు డ్రైవ్", title_en: "NTR Bharosa Pension Applications Drive", days: 15 },
     { title_te: "మెగా DSC ఆన్‌లైన్ దరఖాస్తు", title_en: "Mega DSC Online Application", days: 18 },
     { title_te: "రైతు భరోసా ఈ-క్రాప్ జియో ట్యాగింగ్", title_en: "e-Crop Geo-Tagging Drive", days: 12 },
     { title_te: "బియ్యం కార్డు సభ్యుల eKYC నమోదు", title_en: "Rice Card eKYC Verification", days: 25 },

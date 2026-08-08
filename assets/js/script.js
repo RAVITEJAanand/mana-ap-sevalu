@@ -121,6 +121,7 @@ const DEEP_TRANSLATION_MAP = [
 
   // Ticker & Emergency
   ["తాజా ప్రకటనలు", "Live Updates"],
+  ["📢 పౌరుల సలహా మేరకు: డ్వాక్రా మహిళా ఉత్పత్తుల ఈ-మార్కెట్ & NTR భరోసా పెన్షన్ల పూర్తి గైడ్లు పోర్టల్‌లో లైవ్ అయ్యాయి!", "📢 Citizen Action: DWCRA Women SHG Products e-Market & NTR Bharosa Pension guides are now LIVE!"],
   ["24x7 తక్షణ అత్యవసర నంబర్లు:", "24x7 Instant Emergency Numbers:"],
   ["112 జాతీయ హెల్ప్‌లైన్", "112 National Helpline"],
   ["100 పోలీస్", "100 Police"],
