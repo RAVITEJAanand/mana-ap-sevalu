@@ -1,0 +1,16 @@
+{
+  "name": "ap-citizen-hub-admin-launcher",
+  "version": "1.0.0",
+  "description": "Desktop Admin Launcher for AP Citizen Hub Content Management",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "author": "AP Citizen Hub Team",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^33.2.0"
+  },
+  "dependencies": {}
+}

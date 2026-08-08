@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="te" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AP Citizen Hub - Desktop Admin Launcher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+Telugu:wght@400;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- App Wrapper -->
+  <div class="app-layout">
+    
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-emblem">🏛️</div>
+        <div>
+          <h1 class="brand-title">AP CITIZEN HUB</h1>
+          <p class="brand-subtitle">Desktop Admin Launcher</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section-label">MAIN COCKPIT</div>
+        <button class="nav-item active" data-module="dashboard" id="nav-dashboard">
+          <span class="nav-icon">📊</span>
+          <span>Dashboard</span>
+        </button>
+
+        <div class="nav-section-label">CONTENT MODULES</div>
+        <button class="nav-item" data-module="categories" id="nav-categories">
+          <span class="nav-icon">🗂️</span>
+          <span>Categories</span>
+        </button>
+
+        <button class="nav-item" data-module="services" id="nav-services">
+          <span class="nav-icon">📖</span>
+          <span>Services &amp; Guides</span>
+          <span class="nav-badge" id="badge-services">Core</span>
+        </button>
+
+        <button class="nav-item" data-module="schemes" id="nav-schemes">
+          <span class="nav-icon">🏛️</span>
+          <span>Welfare Schemes</span>
+        </button>
+
+        <button class="nav-item" data-module="jobs" id="nav-jobs">
+          <span class="nav-icon">💼</span>
+          <span>Jobs &amp; Recruitment</span>
+        </button>
+
+        <button class="nav-item" data-module="education" id="nav-education">
+          <span class="nav-icon">🎓</span>
+          <span>Education &amp; Exams</span>
+        </button>
+
+        <button class="nav-item" data-module="emergency" id="nav-emergency">
+          <span class="nav-icon">🚨</span>
+          <span>Emergency Helplines</span>
+        </button>
+
+        <button class="nav-item" data-module="faqs" id="nav-faqs">
+          <span class="nav-icon">❓</span>
+          <span>FAQ Knowledgebase</span>
+        </button>
+
+        <div class="nav-section-label">SYSTEM &amp; ASSETS</div>
+        <button class="nav-item" data-module="media" id="nav-media">
+          <span class="nav-icon">🖼️</span>
+          <span>Media Manager</span>
+        </button>
+
+        <button class="nav-item" data-module="backups" id="nav-backups">
+          <span class="nav-icon">💾</span>
+          <span>Auto-Backups Vault</span>
+        </button>
+
+        <button class="nav-item" data-module="settings" id="nav-settings">
+          <span class="nav-icon">⚙️</span>
+          <span>Launcher Settings</span>
+        </button>
+      </nav>
+
+      <!-- Sidebar Footer -->
+      <div class="sidebar-footer">
+        <div class="system-status-indicator">
+          <span class="pulse-dot"></span>
+          <span>Direct JSON FS Engine</span>
+        </div>
+        <div class="offline-badge">⚡ Offline Ready</div>
+      </div>
+    </aside>
+
+    <!-- MAIN APP CANVAS -->
+    <main class="main-content">
+      
+      <!-- TOP NAVIGATION BAR -->
+      <header class="topbar">
+        
+        <!-- Global Search -->
+        <div class="search-box-wrapper">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="globalAdminSearch" class="global-search-input" placeholder="Search categories, services, schemes, jobs (Ctrl+F)..." autocomplete="off" />
+          <kbd class="kbd-hint">Ctrl + F</kbd>
+        </div>
+
+        <!-- Top Right Actions -->
+        <div class="topbar-actions">
+          
+          <!-- Unsaved Status Indicator -->
+          <div id="saveStatusIndicator" class="save-status-badge saved">
+            <span class="status-icon">✓</span>
+            <span id="saveStatusText">All Changes Synced</span>
+          </div>
+
+          <!-- Quick Website Preview -->
+          <button id="btnTopPreview" class="btn-top-action" title="Preview Public Website (Ctrl+P)">
+            <span>🌐</span>
+            <span>Live Site ↗</span>
+          </button>
+
+          <!-- Theme Toggle -->
+          <button id="btnThemeToggle" class="btn-icon-action" title="Toggle Dark/Light Mode">
+            <span id="themeIcon">🌙</span>
+          </button>
+
+          <!-- Admin User & Lock -->
+          <div class="user-pill" id="btnAdminProfile" title="Admin User">
+            <span class="user-avatar">🛡️</span>
+            <span class="user-name">Admin</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- DYNAMIC MODULE VIEW CANVAS -->
+      <div class="module-canvas">
+        
+        <!-- View 1: Dashboard -->
+        <section id="view-dashboard" class="module-view active">
+          <!-- Populated by modules/dashboard.js -->
+        </section>
+
+        <!-- View 2: Categories -->
+        <section id="view-categories" class="module-view">
+          <!-- Populated by modules/categories.js -->
+        </section>
+
+        <!-- View 3: Services & Guides -->
+        <section id="view-services" class="module-view">
+          <!-- Populated by modules/services.js -->
+        </section>
+
+        <!-- View 4: Schemes -->
+        <section id="view-schemes" class="module-view">
+          <!-- Populated by modules/schemes.js -->
+        </section>
+
+        <!-- View 5: Jobs -->
+        <section id="view-jobs" class="module-view">
+          <!-- Populated by modules/jobs.js -->
+        </section>
+
+        <!-- View 6: Education -->
+        <section id="view-education" class="module-view">
+          <!-- Populated by modules/education.js -->
+        </section>
+
+        <!-- View 7: Emergency -->
+        <section id="view-emergency" class="module-view">
+          <!-- Populated by modules/emergency.js -->
+        </section>
+
+        <!-- View 8: FAQs -->
+        <section id="view-faqs" class="module-view">
+          <!-- Populated by modules/faqs.js -->
+        </section>
+
+        <!-- View 9: Media Manager -->
+        <section id="view-media" class="module-view">
+          <!-- Populated by modules/media.js -->
+        </section>
+
+        <!-- View 10: Auto-Backups Vault -->
+        <section id="view-backups" class="module-view">
+          <!-- Populated by modules/backups.js -->
+        </section>
+
+        <!-- View 11: Settings -->
+        <section id="view-settings" class="module-view">
+          <!-- Populated by modules/settings.js -->
+        </section>
+
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- UNIVERSAL MODAL FOR CRUD EDITORS -->
+  <div id="universalModal" class="modal-overlay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span id="modalIcon" class="modal-emblem">📝</span>
+          <div>
+            <h2 id="modalTitle" class="modal-title">Edit Item</h2>
+            <p id="modalSubtitle" class="modal-subtitle">Update fields and save directly to JSON</p>
+          </div>
+        </div>
+        <button id="modalCloseBtn" class="modal-close-btn" aria-label="Close Modal">✕</button>
+      </div>
+
+      <div id="modalBody" class="modal-body">
+        <!-- Injected dynamic form -->
+      </div>
+
+      <div class="modal-footer">
+        <button id="modalCancelBtn" class="btn-secondary">Cancel</button>
+        <button id="modalSaveBtn" class="btn-primary">
+          <span>💾</span>
+          <span>Save Changes (Ctrl+S)</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PREVIEW MODAL -->
+  <div id="previewModal" class="modal-overlay">
+    <div class="modal-card preview-modal-card">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span class="modal-emblem">👁️</span>
+          <div>
+            <h2 id="previewTitle" class="modal-title">Page Preview</h2>
+            <p class="modal-subtitle">Live simulation of how citizens see this content</p>
+          </div>
+        </div>
+        <button id="previewCloseBtn" class="modal-close-btn">✕</button>
+      </div>
+
+      <div id="previewBody" class="modal-body preview-body-container">
+        <!-- Rendered preview content -->
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <!-- MODULE SCRIPTS -->
+  <script src="modules/auth.js"></script>
+  <script src="modules/dashboard.js"></script>
+  <script src="modules/categories.js"></script>
+  <script src="modules/services.js"></script>
+  <script src="modules/schemes.js"></script>
+  <script src="modules/jobs.js"></script>
+  <script src="modules/education.js"></script>
+  <script src="modules/emergency.js"></script>
+  <script src="modules/faqs.js"></script>
+  <script src="modules/media.js"></script>
+  <script src="modules/settings.js"></script>
+  <script src="modules/preview.js"></script>
+  <script src="renderer.js"></script>
+
+</body>
+</html>

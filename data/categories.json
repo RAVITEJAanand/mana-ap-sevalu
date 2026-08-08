@@ -1,0 +1,74 @@
+[
+  {
+    "id": "schemes",
+    "name_te": "సంక్షేమ పథకాలు",
+    "name_en": "Welfare Schemes",
+    "slug": "schemes",
+    "icon": "🏛️",
+    "order": 1,
+    "visible": true
+  },
+  {
+    "id": "jobs",
+    "name_te": "ఉద్యోగాలు & నోటిఫికేషన్లు",
+    "name_en": "Jobs & Recruitment",
+    "slug": "jobs",
+    "icon": "💼",
+    "order": 2,
+    "visible": true
+  },
+  {
+    "id": "farmers",
+    "name_te": "రైతు సేవలు & ఆర్బీకే",
+    "name_en": "Farmer Services",
+    "slug": "farmers",
+    "icon": "🌾",
+    "order": 3,
+    "visible": true
+  },
+  {
+    "id": "education",
+    "name_te": "విద్య & స్కాలర్‌షిప్‌లు",
+    "name_en": "Education & Scholarships",
+    "slug": "education",
+    "icon": "🎓",
+    "order": 4,
+    "visible": true
+  },
+  {
+    "id": "health",
+    "name_te": "ఆరోగ్యశ్రీ & మెడికల్",
+    "name_en": "Healthcare & Aarogyasri",
+    "slug": "health",
+    "icon": "🏥",
+    "order": 5,
+    "visible": true
+  },
+  {
+    "id": "bills",
+    "name_te": "కరెంట్ & వాటర్ బిల్లులు",
+    "name_en": "Utility Bills",
+    "slug": "bills",
+    "icon": "💡",
+    "order": 6,
+    "visible": true
+  },
+  {
+    "id": "identity",
+    "name_te": "గుర్తింపు పత్రాలు (Aadhaar/Ration)",
+    "name_en": "Identity & Cards",
+    "slug": "identity",
+    "icon": "🪪",
+    "order": 7,
+    "visible": true
+  },
+  {
+    "id": "emergency",
+    "name_te": "24x7 అత్యవసర నంబర్లు",
+    "name_en": "Emergency Helplines",
+    "slug": "emergency",
+    "icon": "🚨",
+    "order": 8,
+    "visible": true
+  }
+]
