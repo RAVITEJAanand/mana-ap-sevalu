@@ -40,7 +40,7 @@
   <header class="site-header">
     <div class="container header-container">
       <a href="../index.html" class="brand-wrapper">
-        <svg class="brand-emblem-svg" width="48" height="48" style="width: 48px; height: 48px; min-width: 48px; border-radius: 12px; flex-shrink: 0;" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="brand-emblem-svg" width="48" height="48" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="50" cy="50" r="48" fill="#013449" stroke="#f59e0b" stroke-width="4"/>
           <circle cx="50" cy="50" r="40" fill="#025373" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4 2"/>
           <path d="M50 18 L55 32 L70 32 L58 41 L62 55 L50 46 L38 55 L42 41 L30 32 L45 32 Z" fill="#f59e0b"/>
@@ -95,34 +95,34 @@
           </h2>
 
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-bottom: 36px;">
-            <div style="background: var(--bg-main); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-light);">
-              <h4 style="color: var(--text-primary); margin-bottom: 6px;">🏛️ సిటిజన్ గ్రీవెన్స్ సెల్ (Spandana)</h4>
-              <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 10px;">టోల్‌ఫ్రీ నంబర్: <strong>1902</strong></p>
-              <a href="tel:1902" class="tag-btn" style="background: var(--primary); color:#fff; font-weight:700;">1902 కి కాల్ చేయండి</a>
+            <div class="calc-box-card">
+              <h4 class="calc-result-title">🏛️ సిటిజన్ గ్రీవెన్స్ సెల్ (Spandana)</h4>
+              <p class="calc-result-desc">టోల్‌ఫ్రీ నంబర్: <strong>1902</strong></p>
+              <a href="tel:1902" class="tag-btn tag-btn-small">1902 కి కాల్ చేయండి</a>
             </div>
 
-            <div style="background: var(--bg-main); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-light);">
-              <h4 style="color: var(--text-primary); margin-bottom: 6px;">🏢 మీసేవ హెల్ప్‌డెస్క్ (MeeSeva)</h4>
-              <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 10px;">టోల్‌ఫ్రీ నంబర్: <strong>1100 / 0866-2486700</strong></p>
-              <a href="tel:1100" class="tag-btn" style="background: var(--secondary); color:#fff; font-weight:700;">1100 కి కాల్ చేయండి</a>
+            <div class="calc-box-card">
+              <h4 class="calc-result-title">🏢 మీసేవ హెల్ప్‌డెస్క్ (MeeSeva)</h4>
+              <p class="calc-result-desc">టోల్‌ఫ్రీ నంబర్: <strong>1100 / 0866-2486700</strong></p>
+              <a href="tel:1100" class="tag-btn tag-btn-small">1100 కి కాల్ చేయండి</a>
             </div>
           </div>
 
           <h3 style="font-size: 1.3rem; margin-bottom: 14px;">📝 మీ అభిప్రాయం లేదా సందేహాన్ని తెలియజేయండి</h3>
           <form onsubmit="event.preventDefault(); alert('మీ సందేశం విజయవంతంగా నమోదైంది. మా పౌర సహాయ బృందం పరిశీలిస్తుంది.'); this.reset();">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+            <div class="calc-grid-2col">
               <div>
-                <label style="display:block; font-weight:600; font-size:0.9rem; margin-bottom:6px;">మీ పేరు (Full Name):</label>
-                <input type="text" required class="search-main-input" placeholder="మీ పూర్తి పేరు" style="padding:12px;">
+                <label class="calc-field-label">మీ పేరు (Full Name):</label>
+                <input type="text" required class="search-main-input" placeholder="మీ పూర్తి పేరు" class="calc-field-select">
               </div>
               <div>
-                <label style="display:block; font-weight:600; font-size:0.9rem; margin-bottom:6px;">మొబైల్ నంబర్ (Mobile):</label>
-                <input type="tel" required class="search-main-input" placeholder="10 అంకెల మొబైల్ నంబర్" style="padding:12px;">
+                <label class="calc-field-label">మొబైల్ నంబర్ (Mobile):</label>
+                <input type="tel" required class="search-main-input" placeholder="10 అంకెల మొబైల్ నంబర్" class="calc-field-select">
               </div>
             </div>
 
             <div style="margin-bottom: 16px;">
-              <label style="display:block; font-weight:600; font-size:0.9rem; margin-bottom:6px;">విభాగం (Category):</label>
+              <label class="calc-field-label">విభాగం (Category):</label>
               <select class="search-category-select" style="width: 100%;">
                 <option>ఆధార్ / పాన్ / ఓటర్ ఐడీ సేవలు</option>
                 <option>రైతు భరోసా & సంక్షేమ పథకాలు</option>
@@ -133,8 +133,8 @@
             </div>
 
             <div style="margin-bottom: 20px;">
-              <label style="display:block; font-weight:600; font-size:0.9rem; margin-bottom:6px;">మీ సందేశం / సమస్య వివరాలు:</label>
-              <textarea rows="4" required class="search-main-input" placeholder="మీ సందేహం లేదా సమస్య వివరాలను ఇక్కడ రాయండి..." style="padding:12px;"></textarea>
+              <label class="calc-field-label">మీ సందేశం / సమస్య వివరాలు:</label>
+              <textarea rows="4" required class="search-main-input" placeholder="మీ సందేహం లేదా సమస్య వివరాలను ఇక్కడ రాయండి..." class="calc-field-select"></textarea>
             </div>
 
             <button type="submit" class="search-submit-btn" style="width:100%; justify-content:center;">
