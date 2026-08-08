@@ -1929,3 +1929,59 @@ main {
 .fs-1-18rem { font-weight: 800 !important; font-size: 1.18rem !important; color: #16a34a !important; margin-bottom: 6px !important; }
 .p-btn-done { padding: 10px 24px !important; border-radius: var(--radius-md) !important; font-weight: 700 !important; font-size: 0.95rem !important; }
 .d-flex-center { display: flex !important; justify-content: center !important; }
+
+
+/* Dedicated Citizen Feedback Action Strip */
+.citizen-feedback-action-strip {
+  background: linear-gradient(90deg, #022c44 0%, #034b6e 100%);
+  border-bottom: 1px solid rgba(245, 158, 11, 0.3);
+  padding: 6px 0;
+  font-size: 0.82rem;
+  color: #fef08a;
+  overflow: hidden;
+}
+
+.feedback-strip-inner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.feedback-strip-badge {
+  background: rgba(245, 158, 11, 0.2);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  color: #fef08a;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-weight: 800;
+  font-size: 0.74rem;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.feedback-strip-viewport {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent, black 15px, black 95%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 15px, black 95%, transparent);
+}
+
+.feedback-strip-scroll {
+  display: inline-block;
+  white-space: nowrap;
+  padding-left: 100%;
+  animation: feedback-slide 28s linear infinite;
+  color: #ffffff;
+}
+
+.feedback-strip-scroll:hover {
+  animation-play-state: paused;
+}
+
+@keyframes feedback-slide {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-100%, 0, 0); }
+}
