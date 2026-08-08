@@ -609,8 +609,8 @@ function initCitizenFeedbackSystem() {
       name: 'Anonymous Citizen'
     };
 
-    // 1. Submit directly to Gmail (steja1343@gmail.com) via FormSubmit
-    fetch('https://formsubmit.co/ajax/steja1343@gmail.com', {
+    // 1. Submit directly to Gmail (steja1343@gmail.com) via Verified FormSubmit Token
+    fetch('https://formsubmit.co/ajax/e0db48c0cd01d1c64f761839acd89dee', {
       method: 'POST',
       headers: { 
         'Content-Type': 'application/json',
