@@ -66,6 +66,7 @@
       max-width: 420px;
       text-align: center;
       box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+      -webkit-backdrop-filter: blur(14px);
       backdrop-filter: blur(14px);
     }
 
@@ -490,10 +491,10 @@
 
         <form id="pinForm" onsubmit="handlePinUnlock(event)">
           <div class="pin-input-group">
-            <input type="password" maxlength="1" class="pin-input" id="pin1" autofocus autocomplete="off">
-            <input type="password" maxlength="1" class="pin-input" id="pin2" autocomplete="off">
-            <input type="password" maxlength="1" class="pin-input" id="pin3" autocomplete="off">
-            <input type="password" maxlength="1" class="pin-input" id="pin4" autocomplete="off">
+            <input type="password" maxlength="1" class="pin-input" id="pin1" aria-label="PIN Digit 1" title="PIN Digit 1" autofocus autocomplete="off">
+            <input type="password" maxlength="1" class="pin-input" id="pin2" aria-label="PIN Digit 2" title="PIN Digit 2" autocomplete="off">
+            <input type="password" maxlength="1" class="pin-input" id="pin3" aria-label="PIN Digit 3" title="PIN Digit 3" autocomplete="off">
+            <input type="password" maxlength="1" class="pin-input" id="pin4" aria-label="PIN Digit 4" title="PIN Digit 4" autocomplete="off">
           </div>
           <button type="submit" class="btn-unlock">🔓 లాగిన్ చేయండి</button>
           <div id="pinError" class="pin-error">⚠️ సరైన 4-అంకెల పిన్ (1343) నమోదు చేయండి!</div>
@@ -655,7 +656,7 @@
               <span>📊 అంచనా నెలవారీ విజిటర్లు:</span>
               <span id="sliderValLabel" style="color: var(--gold-light);">25,000</span>
             </div>
-            <input type="range" min="5000" max="250000" step="5000" value="25000" class="rev-slider" id="revSlider" oninput="updateRevenueCalc(this.value)">
+            <input type="range" min="5000" max="250000" step="5000" value="25000" class="rev-slider" id="revSlider" aria-label="Monthly Visitor Estimator" title="Monthly Visitor Estimator" oninput="updateRevenueCalc(this.value)">
             <div class="rev-display">
               <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 400;">అంచనా ఆదాయం: </span>
               <span id="revAmount">₹6,250 / నెల</span>
