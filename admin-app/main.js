@@ -9,17 +9,33 @@ const PROJECT_ROOT = path.join(__dirname, '..');
 // Auto Git Push after every save
 function autoGitPush(filename) {
   try {
-    // Only stage website content — NOT admin-app/ (it's in .gitignore)
-    execSync('git add data/ assets/ index.html 2>nul || git add data/ assets/', { cwd: PROJECT_ROOT, stdio: 'pipe', shell: 'powershell.exe' });
-    execSync(`git commit -m "[Admin Auto-Sync] Updated ${filename} via Desktop Launcher"`, { cwd: PROJECT_ROOT, stdio: 'pipe' });
+    // 0. Disable addIgnoredFile advice error in git config
+    try {
+      execSync('git config advice.addIgnoredFile false', { cwd: PROJECT_ROOT, stdio: 'pipe' });
+    } catch (cfgErr) {}
+
+    // 1. Stage website content files safely
+    execSync('git add data/ assets/ index.html pages/', { cwd: PROJECT_ROOT, stdio: 'pipe' });
+
+    // 2. Commit changes if present
+    try {
+      execSync(`git commit -m "[Admin Auto-Sync] Updated ${filename || 'content'} via Desktop Launcher"`, { 
+        cwd: PROJECT_ROOT, 
+        stdio: 'pipe' 
+      });
+    } catch (commitErr) {
+      // Nothing to commit is a normal state
+    }
+
+    // 3. Push to GitHub
     execSync('git push origin main', { cwd: PROJECT_ROOT, stdio: 'pipe' });
-    return { success: true, message: `✅ ${filename} saved + pushed to GitHub live site!` };
+    return { success: true, message: `✅ ${filename || 'Content'} saved + synced to live site!` };
   } catch (err) {
-    const msg = err.message || '';
-    if (msg.includes('nothing to commit') || msg.includes('up-to-date')) {
+    const errorMsg = (err.stderr ? err.stderr.toString() : err.message) || '';
+    if (errorMsg.includes('nothing to commit') || errorMsg.includes('up-to-date') || errorMsg.includes('Everything up-to-date')) {
       return { success: true, message: 'Already up-to-date with GitHub.' };
     }
-    return { success: false, error: err.message };
+    return { success: false, error: errorMsg };
   }
 }
 
