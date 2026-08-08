@@ -70,5 +70,14 @@
     "icon": "🚨",
     "order": 8,
     "visible": true
+  },
+  {
+    "id": "legal",
+    "name_te": "భారతీయ చట్టాలు & న్యాయ సేవలు",
+    "name_en": "Legal Rights & Court Help",
+    "slug": "legal",
+    "icon": "⚖️",
+    "order": 9,
+    "visible": true
   }
 ]
