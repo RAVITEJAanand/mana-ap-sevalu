@@ -1987,3 +1987,27 @@ main {
   0% { transform: translate3d(0, 0, 0); }
   100% { transform: translate3d(-100%, 0, 0); }
 }
+
+
+/* Admin HTML Clean Classes */
+.text-cyan-brand { font-size: 1.35rem !important; color: #38bdf8 !important; }
+.text-green-brand { font-size: 1.35rem !important; color: #22c55e !important; }
+.fs-078 { font-size: 0.78rem !important; }
+.fs-08 { font-size: 0.8rem !important; }
+.fs-082 { font-size: 0.82rem !important; }
+.fs-086 { font-size: 0.86rem !important; }
+.fs-09 { font-size: 0.9rem !important; }
+.fs-11 { font-size: 1.1rem !important; }
+.fs-12-bold { font-size: 1.2rem !important; font-weight: 800 !important; color: var(--gold-light) !important; margin-top: 4px !important; }
+.fs-14-bold { font-size: 1.4rem !important; font-weight: 900 !important; color: var(--green) !important; margin-top: 4px !important; }
+.fs-12-cyan { font-size: 1.2rem !important; font-weight: 800 !important; color: var(--cyan) !important; margin-top: 4px !important; }
+.gap-8 { display: flex !important; gap: 8px !important; }
+.grid-calc { display: grid !important; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important; gap: 16px !important; margin-top: 20px !important; }
+.calc-card { background: #021827 !important; padding: 14px !important; border-radius: 10px !important; border: 1px solid rgba(255,255,255,0.05) !important; }
+.subtext-lead { font-size: 0.9rem !important; color: var(--text-muted) !important; margin-bottom: 20px !important; line-height: 1.6 !important; }
+.label-muted-small { font-size: 0.8rem !important; color: var(--text-muted) !important; }
+.color-gold-light { color: var(--gold-light) !important; }
+.color-red { color: var(--red) !important; }
+.mb-12 { margin-bottom: 12px !important; }
+.mb-14 { margin-bottom: 14px !important; }
+.mb-6 { margin-bottom: 6px !important; }

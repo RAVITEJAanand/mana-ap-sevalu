@@ -641,7 +641,7 @@
           <a href="index.html" target="_blank" rel="noopener noreferrer" class="btn-action">
             <span>🌐</span> <span>లైవ్ సైట్ ↗</span>
           </a>
-          <button onclick="lockDashboard()" class="btn-action" style="color: var(--red);">
+          <button onclick="lockDashboard()" class="btn-action" class="color-red">
             <span>🔒</span> <span>లాక్</span>
           </button>
         </div>
@@ -691,7 +691,7 @@
               <span>Google AdSense</span>
               <span>💰</span>
             </div>
-            <div class="metric-val" style="font-size: 1.35rem; color: #38bdf8;">ca-pub-24682...</div>
+            <div class="metric-val" class="text-cyan-brand">ca-pub-24682...</div>
             <div class="metric-foot">
               <span>✅</span>
               <span>ads.txt 100% ఆక్టివ్</span>
@@ -703,7 +703,7 @@
               <span>GitHub Pages స్టేటస్</span>
               <span>⚡</span>
             </div>
-            <div class="metric-val" style="font-size: 1.35rem; color: #22c55e;">200 OK LIVE</div>
+            <div class="metric-val" class="text-green-brand">200 OK LIVE</div>
             <div class="metric-foot">
               <span>🔗</span>
               <span>ravitejaanand.github.io</span>
@@ -721,7 +721,7 @@
                 <span>📩</span>
                 <span>తాజా పౌర సలహాలు (Recent Suggestions)</span>
               </div>
-              <button onclick="switchTab('tabFeedbacks')" class="btn-action" style="font-size: 0.78rem;">
+              <button onclick="switchTab('tabFeedbacks')" class="btn-action" class="fs-078">
                 <span>అన్నీ చూడండి →</span>
               </button>
             </div>
@@ -774,11 +774,11 @@
               <span>📩</span>
               <span>పౌర సలహాలు &amp; ఫీడ్‌బ్యాక్ పూర్తి హిస్టరీ</span>
             </div>
-            <div style="display: flex; gap: 8px;">
-              <button onclick="exportFeedbacksCSV()" class="btn-action" style="font-size: 0.8rem;">
+            <div class="gap-8">
+              <button onclick="exportFeedbacksCSV()" class="btn-action" class="fs-08">
                 <span>📥 CSV డౌన్‌లోడ్</span>
               </button>
-              <button onclick="addNewFeedbackPrompt()" class="btn-action" style="font-size: 0.8rem;">
+              <button onclick="addNewFeedbackPrompt()" class="btn-action" class="fs-08">
                 <span>➕ కొత్త సలహా నమోదు</span>
               </button>
             </div>
@@ -829,29 +829,29 @@
             <span class="badge-live">Publisher: ca-pub-2468238593433239</span>
           </div>
 
-          <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px; line-height: 1.6;">
+          <p class="subtext-lead">
             మీ వెబ్‌సైట్ ట్రాఫిక్ పెరిగే కొద్దీ గూగుల్ యాడ్‌సెన్స్ ద్వారా ఎంత ఆదాయం వస్తుందో ఇక్కడ అంచనా వేయవచ్చు:
           </p>
 
           <div class="calc-tool-box">
             <div class="slider-row">
               <span>📊 అంచనా నెలవారీ విజిటర్లు:</span>
-              <span id="sliderValLabel" style="color: var(--gold-light); font-size: 1.1rem;">50,000</span>
+              <span id="sliderValLabel" class="color-gold-light fs-11">50,000</span>
             </div>
             <input type="range" min="5000" max="500000" step="5000" value="50000" class="rev-slider" id="revSlider" aria-label="Monthly Visitor Estimator" title="Monthly Visitor Estimator" oninput="updateRevenueCalc(this.value)">
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 20px;">
-              <div style="background: #021827; padding: 14px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.05);">
-                <div style="font-size: 0.8rem; color: var(--text-muted);">రోజువారీ అంచనా:</div>
-                <div id="revDaily" style="font-size: 1.2rem; font-weight: 800; color: var(--gold-light); margin-top: 4px;">₹416 / రోజు</div>
+            <div class="grid-calc">
+              <div class="calc-card">
+                <div class="label-muted-small">రోజువారీ అంచనా:</div>
+                <div id="revDaily" class="fs-12-bold">₹416 / రోజు</div>
               </div>
-              <div style="background: #021827; padding: 14px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.05);">
-                <div style="font-size: 0.8rem; color: var(--text-muted);">నెలవారీ అంచనా:</div>
-                <div id="revAmount" style="font-size: 1.4rem; font-weight: 900; color: var(--green); margin-top: 4px;">₹12,500 / నెల</div>
+              <div class="calc-card">
+                <div class="label-muted-small">నెలవారీ అంచనా:</div>
+                <div id="revAmount" class="fs-14-bold">₹12,500 / నెల</div>
               </div>
-              <div style="background: #021827; padding: 14px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.05);">
-                <div style="font-size: 0.8rem; color: var(--text-muted);">వార్షిక అంచనా (Yearly):</div>
-                <div id="revYearly" style="font-size: 1.2rem; font-weight: 800; color: var(--cyan); margin-top: 4px;">₹1,50,000 / సం.</div>
+              <div class="calc-card">
+                <div class="label-muted-small">వార్షిక అంచనా (Yearly):</div>
+                <div id="revYearly" class="fs-12-cyan">₹1,50,000 / సం.</div>
               </div>
             </div>
           </div>
@@ -867,12 +867,12 @@
               <span>లైవ్ ప్రకటనల టిక్కర్ సిమ్యులేటర్ (Live Ticker Broadcaster)</span>
             </div>
           </div>
-          <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 14px;">
+          <p class="fs-09 mb-14">
             హోమ్ పేజీలో పౌరులకు కనిపించే లైవ్ టిక్కర్‌ను ఇక్కడే టెస్ట్ చేసి ప్రివ్యూ చూడండి:
           </p>
           <input type="text" id="customTickerInput" class="ticker-input" placeholder="ఉదా: 📢 వైఎస్సార్ రైతు భరోసా తేదీలు ప్రకటించబడ్డాయి..." oninput="previewTicker(this.value)" value="📢 పౌరుల సలహా మేరకు: డ్వాక్రా మహిళా ఉత్పత్తుల ఈ-మార్కెట్ &amp; NTR భరోసా పెన్షన్ల పూర్తి గైడ్లు లైవ్ అయ్యాయి!">
           
-          <div style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 6px;">లైవ్ ప్రివ్యూ స్క్రీన్:</div>
+          <div class="fs-082 mb-6">లైవ్ ప్రివ్యూ స్క్రీన్:</div>
           <div class="ticker-preview-box" id="tickerPreviewDisplay">
             📢 పౌరుల సలహా మేరకు: డ్వాక్రా మహిళా ఉత్పత్తుల ఈ-మార్కెట్ &amp; NTR భరోసా పెన్షన్ల పూర్తి గైడ్లు లైవ్ అయ్యాయి!
           </div>
@@ -887,11 +887,11 @@
               <span>📝</span>
               <span>ఓనర్ సీక్రెట్ నోట్స్ &amp; టాస్క్ లిస్ట్ (Private Vault)</span>
             </div>
-            <button onclick="saveOwnerNotes()" class="btn-action" id="btnSaveNotes" style="font-size: 0.8rem;">
+            <button onclick="saveOwnerNotes()" class="btn-action" id="btnSaveNotes" class="fs-08">
               <span>💾 నోట్స్ సేవ్ చేయండి</span>
             </button>
           </div>
-          <p style="font-size: 0.86rem; color: var(--text-muted); margin-bottom: 12px;">
+          <p class="fs-086 mb-12">
             ఇది మీ కంప్యూటర్‌లో మాత్రమే భద్రంగా ఉండే ప్రైవేట్ నోట్‌ప్యాడ్. మీ వ్యక్తిగత ప్రణాళికలు ఇక్కడ రాసుకోవచ్చు:
           </p>
           <textarea id="ownerNotesArea" class="notes-textarea" rows="10" placeholder="ఇక్కడ మీ ప్రైవేట్ నోట్స్, రాబోయే పథకాలు, చెయ్యాల్సిన పనులు రాసుకోండి..."></textarea>

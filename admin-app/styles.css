@@ -235,7 +235,7 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  -webkit--webkit-backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
@@ -624,7 +624,7 @@ body {
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.75);
-  -webkit--webkit-backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
