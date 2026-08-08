@@ -544,6 +544,11 @@ function initCitizenFeedbackSystem() {
             </div>
 
             <div class="feedback-form-group">
+              <label class="feedback-label">${isEn ? 'Your Name / District (Optional):' : 'మీ పేరు లేదా జిల్లా (ఐచ్ఛికం / అవసరం లేదు):'}</label>
+              <input type="text" id="fbName" name="citizen_name" class="feedback-select" style="padding: 10px 14px;" placeholder="${isEn ? 'e.g. Ramesh / Vijayawada (Optional)' : 'ఉదా: రమేష్ / గుంటూరు (రాయకపోయినా ఫర్వాలేదు)'}">
+            </div>
+
+            <div class="feedback-form-group">
               <label class="feedback-label">${isEn ? 'Your Suggestion / Message:' : 'మీ సలహా లేదా సూచన (తప్పనిసరి):'}</label>
               <textarea id="fbMessage" name="message" class="feedback-textarea" rows="3" required placeholder="${isEn ? 'Write your valuable feedback here...' : 'ఈ వెబ్‌సైట్‌లో ఇంకా ఏమి మార్చాలి? మీ అభిప్రాయం రాయండి...'}"></textarea>
             </div>
@@ -635,6 +640,8 @@ function initCitizenFeedbackSystem() {
       }
 
       const category = document.getElementById('fbCategory').value;
+      const nameInput = document.getElementById('fbName');
+      const citizenName = nameInput && nameInput.value.trim() ? nameInput.value.trim() : 'Anonymous Citizen (అజ్ఞాత పౌరుడు)';
       const message = document.getElementById('fbMessage').value.trim();
 
       fetch('https://formsubmit.co/ajax/e0db48c0cd01d1c64f761839acd89dee', {
@@ -645,6 +652,7 @@ function initCitizenFeedbackSystem() {
           _captcha: 'false',
           _template: 'table',
           Rating: currentRating + ' Stars ★',
+          Citizen_Name: citizenName,
           Category: category,
           Citizen_Feedback: message,
           Time: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
