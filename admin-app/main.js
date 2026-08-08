@@ -3,8 +3,32 @@ const path = require('path');
 const fs = require('fs');
 const { execSync } = require('child_process');
 
-// Root of the AP website (one level up from admin-app/)
-const PROJECT_ROOT = path.join(__dirname, '..');
+// Robust Project Root Finder (Resolves correctly in dev, packaged, or standalone exe mode)
+function findProjectRoot() {
+  const candidates = [
+    path.resolve(__dirname, '..'),
+    path.resolve(__dirname, '..', '..'),
+    path.resolve(__dirname, '..', '..', '..'),
+    path.resolve(__dirname, '..', '..', '..', '..'),
+    path.resolve(process.cwd()),
+    path.resolve(process.cwd(), '..'),
+    'C:\\Users\\mteja\\OneDrive\\Documents\\AP_website'
+  ];
+
+  for (const dir of candidates) {
+    if (fs.existsSync(path.join(dir, 'index.html')) && fs.existsSync(path.join(dir, 'data'))) {
+      return dir;
+    }
+  }
+  return 'C:\\Users\\mteja\\OneDrive\\Documents\\AP_website';
+}
+
+const PROJECT_ROOT = findProjectRoot();
+const DATA_DIR = path.join(PROJECT_ROOT, 'data');
+const BACKUP_DIR = path.join(DATA_DIR, 'backups');
+const ASSETS_DIR = path.join(PROJECT_ROOT, 'assets');
+const IMAGES_DIR = path.join(ASSETS_DIR, 'images');
+const ICONS_DIR = path.join(ASSETS_DIR, 'icons');
 
 // Auto Git Push after every save
 function autoGitPush(filename) {
@@ -13,7 +37,7 @@ function autoGitPush(filename) {
       execSync('git config advice.addIgnoredFile false', { cwd: PROJECT_ROOT, stdio: 'pipe' });
     } catch (e0) {}
 
-    // 1. Stage website files safely (without staging ignored admin-app/)
+    // 1. Stage website files safely
     try {
       execSync('git add data/ assets/ index.html pages/', { cwd: PROJECT_ROOT, stdio: 'pipe' });
     } catch (e1) {
@@ -52,12 +76,6 @@ function autoGitPush(filename) {
 }
 
 let mainWindow = null;
-
-const DATA_DIR = path.join(__dirname, '..', 'data');
-const BACKUP_DIR = path.join(DATA_DIR, 'backups');
-const ASSETS_DIR = path.join(__dirname, '..', 'assets');
-const IMAGES_DIR = path.join(ASSETS_DIR, 'images');
-const ICONS_DIR = path.join(ASSETS_DIR, 'icons');
 
 // Ensure essential directories exist
 [DATA_DIR, BACKUP_DIR, ASSETS_DIR, IMAGES_DIR, ICONS_DIR].forEach(dir => {
