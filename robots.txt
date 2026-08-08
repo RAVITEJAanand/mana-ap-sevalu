@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mana-ap-sevalu.netlify.app/sitemap.xml

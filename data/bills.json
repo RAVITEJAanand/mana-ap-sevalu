@@ -1,0 +1,50 @@
+[
+  {
+    "id": "property-tax",
+    "name_te": "మున్సిపల్ ఆస్తి పన్ను & నీటి పన్ను",
+    "name_en": "AP Municipal Property Tax & Water Charges",
+    "department_te": "పురపాలక & పట్టణాభివృద్ధి శాఖ (CDMA AP)",
+    "department_en": "Municipal Administration CDMA AP",
+    "icon": "🏠",
+    "description_te": "10 అంకెల PTIN నంబర్‌తో ఆన్‌లైన్ పన్ను చెల్లింపు, ఏప్రిల్ 30 లోపు చెల్లిస్తే 5% ఎర్లీ బర్డ్ రాయితీ మరియు డిజిటల్ రసీదు.",
+    "summary_en": "Online property tax payment using 10-digit PTIN, 5% Early Bird rebate, vacant land tax and CDMA digital receipts.",
+    "guide_url": "pages/service-detail.html?id=property-tax",
+    "official_url": "https://cdma.ap.gov.in/"
+  },
+  {
+    "id": "lpg-gas",
+    "name_te": "LPG గ్యాస్ సిలిండర్ బుకింగ్ & దీపం పథకం",
+    "name_en": "LPG Cylinder Online Booking & Deepam Scheme",
+    "department_te": "పౌర సరఫరాలు & ఆయిల్ కంపెనీలు",
+    "department_en": "Civil Supplies & Oil Marketing Companies",
+    "icon": "🔥",
+    "description_te": "HP Gas, Indane, Bharatgas వాట్సాప్/IVRS సిలిండర్ బుకింగ్, ఉచిత గ్యాస్ సిలిండర్ల సబ్సిడీ మరియు బ్యాంక్ జమ స్టేటస్.",
+    "summary_en": "WhatsApp cylinder refill booking, missed call booking, Deepam free LPG cylinders scheme, DBT subsidy and safety guidelines.",
+    "guide_url": "pages/service-detail.html?id=lpg-gas",
+    "official_url": "https://www.mylpg.in/"
+  },
+  {
+    "id": "echallan",
+    "name_te": "ఏపీ ట్రాఫిక్ ఈ-చలానా చెల్లింపులు",
+    "name_en": "AP Police Traffic e-Challan Online Payment",
+    "department_te": "ఆంధ్రప్రదేశ్ పోలీస్ ట్రాఫిక్ విభాగం",
+    "department_en": "Andhra Pradesh Police Traffic Wing",
+    "icon": "🚦",
+    "description_te": "వాహనం రిజిస్ట్రేషన్ నంబర్‌తో పెండింగ్ చలానాల పరిశీలన, ఆన్‌లైన్ UPI పేమెంట్, రాయితీ ఆఫర్లు మరియు ఫోటో ఎవిడెన్స్ చెకింగ్.",
+    "summary_en": "Check traffic violations by vehicle registration number (AP XX XX XXXX), online UPI fine payment, digital dispute resolution and photo evidence.",
+    "guide_url": "pages/service-detail.html?id=echallan",
+    "official_url": "https://echallan.parivahan.gov.in/"
+  },
+  {
+    "id": "gruha-jyothi",
+    "name_te": "గృహ జ్యోతి - ఉచిత విద్యుత్ పథకం",
+    "name_en": "Gruha Jyothi - Free Domestic Electricity",
+    "department_te": "ఇంధన శాఖ డిస్కంలు (APEPDCL / APCPDCL / APSPDCL)",
+    "department_en": "Energy Department & AP Discoms",
+    "icon": "💡",
+    "description_te": "నెలకు 200 యూనిట్ల వరకు పూర్తి ఉచిత విద్యుత్, జీరో బిల్లు మరియు విద్యుత్ మీటర్‌కు ఆధార్-రేషన్ కార్డు అనుసంధానం.",
+    "summary_en": "Up to 200 units of zero-cost free domestic electricity monthly, meter-Aadhaar linking and Discom guidelines.",
+    "guide_url": "pages/service-detail.html?id=gruha-jyothi",
+    "official_url": "https://www.apeasternpower.com/"
+  }
+]

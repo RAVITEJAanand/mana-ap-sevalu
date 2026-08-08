@@ -1,0 +1,104 @@
+[
+  {
+    "id": "e-crop",
+    "name_te": "ఈ-క్రాప్ బుకింగ్ (e-Crop Digital Survey)",
+    "name_en": "e-Crop Digital Crop Booking System",
+    "icon": "📱",
+    "summary_te": "ప్రతి ఎకరాలో వేసిన పంటను గ్రామ వ్యవసాయ సహాయకుడు (VAA) చేత జియో-ట్యాగింగ్ ద్వారా డిజిటల్ రికార్డు చేయించే విధానం.",
+    "summary_en": "Mandatory digital geo-tagged crop booking by Village Agriculture Assistants ensuring crop identity.",
+    "benefits_te": [
+      "ఉచిత పంట బీమా (Free Crop Insurance) వర్తింపు",
+      "ప్రభుత్వ మద్దతు ధర (MSP) తో ధాన్యం/పంట కొనుగోలు",
+      "సున్నా వడ్డీ పంట రుణాలు (Zero Interest Crop Loans)",
+      "ప్రకృతి వైపరీత్యాలలో పంట నష్టపరిహారం (Input Subsidy) పొందడానికి తప్పనిసరి"
+    ],
+    "benefits_en": [
+      "100% Free State Crop Insurance",
+      "Assured Minimum Support Price (MSP) procurement",
+      "Zero Interest Crop Loan eligibility",
+      "Disaster input subsidy direct deposit"
+    ],
+    "official_url": "https://karshak.ap.gov.in",
+    "guide_url": "pages/service-detail.html?id=e-crop"
+  },
+  {
+    "id": "soil-health",
+    "name_te": "సాయిల్ హెల్త్ కార్డ్ & భూసార పరీక్షలు (Soil Health)",
+    "name_en": "Soil Health Card & Soil Testing Labs",
+    "icon": "🧪",
+    "summary_te": "మీ పొలంలో నేల నమూనాలు సేకరించి 12 రకాల పోషక విలువల స్థాయిలను తెలుసుకుని ఎరువుల వ్యయం తగ్గించుకునే మార్గం.",
+    "summary_en": "Scientific testing of 12 soil parameters to optimize chemical fertilizer use and boost yield.",
+    "benefits_te": [
+      "ఎరువుల ఖర్చు 20% నుండి 30% వరకు ఆదా",
+      "రైతు భరోసా కేంద్రాల్లో (RBK) ఉచిత నేల నమూనాల సేకరణ",
+      "భూసార స్థితి కార్డు 3 సంవత్సరాల వరకు చెల్లుబాటు"
+    ],
+    "benefits_en": [
+      "Reduces fertilizer costs by 20-30%",
+      "Free sample collection at nearest RBK",
+      "Detailed 3-year validity digital card"
+    ],
+    "official_url": "https://soilhealth.dac.gov.in",
+    "guide_url": "pages/service-detail.html?id=soil-health"
+  },
+  {
+    "id": "panta-bheema",
+    "name_te": "ఉచిత పంటల బీమా పథకం (Free Crop Insurance)",
+    "name_en": "AP Free Crop Insurance Scheme",
+    "icon": "🛡️",
+    "summary_te": "రైతుపై ఒక్క పైసా కూడా ప్రీమియం భారం లేకుండా రాష్ట్ర ప్రభుత్వమే పూర్తి ప్రీమియం చెల్లించి అమలుచేసే పథకం.",
+    "summary_en": "Complete premium subsidy by AP Government protecting notified food and commercial crops.",
+    "benefits_te": [
+      "రైతు ఎలాంటి దరఖాస్తు లేదా ప్రీమియం చెల్లించనక్కర్లేదు",
+      "ఈ-క్రాప్ బుకింగ్ పూర్తయితే ఆటోమేటిక్‌గా బీమా యాక్టివేట్",
+      "సీసీఈ (Crop Cutting Experiments) ఆధారంగా తక్షణ నష్టపరిహారం"
+    ],
+    "benefits_en": [
+      "Zero farmer premium contribution",
+      "Automatic enrollment via e-Crop",
+      "Transparent direct bank transfer compensation"
+    ],
+    "official_url": "https://apagrisnet.gov.in",
+    "guide_url": "pages/service-detail.html?id=panta-bheema"
+  },
+  {
+    "id": "drip-irrigation",
+    "name_te": "ఏపీఎంఐపీ బిందు & తుంపర సేద్యం (Drip & Sprinkler Subsidy)",
+    "name_en": "APMIP Micro Irrigation Subsidy",
+    "icon": "💧",
+    "summary_te": "చిన్న, సన్నకారు రైతులకు 90% సబ్సిడీతో మరియు ఇతర రైతులకు 70% సబ్సిడీతో డ్రిప్ మరియు స్ప్రింక్లర్ వ్యవస్థల పంపిణీ.",
+    "summary_en": "Up to 90% subsidy for small/marginal farmers for micro irrigation equipment installations.",
+    "benefits_te": [
+      "నీటి ఆదా 50% నుండి 70% వరకు",
+      "విద్యుత్ మరియు లేబర్ ఖర్చులు గణనీయంగా తగ్గుదల",
+      "రైతు వాటా డీడీ (DD) చెల్లించిన 15 రోజుల్లో ఇన్‌స్టాలేషన్"
+    ],
+    "benefits_en": [
+      "50-70% water savings",
+      "Enhanced harvest yield by 30-40%",
+      "Subsidized high-quality ISI equipment"
+    ],
+    "official_url": "https://apmip.ap.gov.in",
+    "guide_url": "pages/service-detail.html?id=drip-irrigation"
+  },
+  {
+    "id": "rbk-services",
+    "name_te": "రైతు సేవా కేంద్రాలు (RBKs / Rythu Seva Kendralu)",
+    "name_en": "Integrated Rythu Bharosa Kendras (RBK)",
+    "icon": "🏬",
+    "summary_te": "గ్రామంలోనే నాణ్యమైన విత్తనాలు, ఎరువులు, పురుగుమందులు, వ్యవసాయ యంత్రాలు మరియు కస్టమ్ హైరింగ్ సెంటర్లు.",
+    "summary_en": "One-stop village agribusiness hubs supplying certified inputs, soil testing, and banking.",
+    "benefits_te": [
+      "కల్తీ లేని సర్టిఫైడ్ విత్తనాలు, ఎరువుల పంపిణీ",
+      "డిజిటల్ కియోస్క్ ద్వారా 24-48 గంటల్లో డెలివరీ",
+      "గ్రామంలోనే పంట కొనుగోలు మరియు ఆర్బీకే కౌన్సెలింగ్"
+    ],
+    "benefits_en": [
+      "100% genuine inputs guarantee",
+      "Digital kiosk ordering in rural hubs",
+      "Village-level procurement centers"
+    ],
+    "official_url": "https://rbk.ap.gov.in",
+    "guide_url": "pages/service-detail.html?id=rbk-services"
+  }
+]

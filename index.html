@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="te" data-theme="light">
+<head>
+  <meta name="google-adsense-account" content="ca-pub-2468238593433239">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>మన AP సేవలు | ఆంధ్రప్రదేశ్ డిజిటల్ పౌర సేవా మిత్ర (Mana AP Sevalu)</title>
+  <meta name="description" content="ఆంధ్రప్రదేశ్ పౌరుల సమగ్ర డిజిటల్ గైడ్. ఆధార్, రేషన్ కార్డు, రైతు భరోసా, ఆరోగ్యశ్రీ, ఉద్యోగాలు, విద్య, బిల్లుల అధికారిక సమాచారం మరియు ప్రత్యామ్నాయ వర్కింగ్ లింకులు.">
+
+  <!-- Style Tokens -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  
+  <!-- Master Interactive Engine & Automation -->
+  <script defer src="assets/js/script.js"></script>
+  <script defer src="assets/js/automation.js"></script>
+
+  <!-- Google AdSense Official Integration Code -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2468238593433239" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+  <!-- Top Utility Bar with Live Counter, Telugu Calendar & Accessibility -->
+  <div class="top-utility-bar">
+    <div class="container utility-content">
+      <div class="govt-badge-text">
+        <span class="govt-seal-dot"></span>
+        <span class="live-calendar-date" style="font-weight: 700; color: #fef08a;">శనివారం, 8 ఆగస్టు 2026</span> <span id="globalVisitCounter" class="live-visit-count"></span>
+        <span>&bull;</span>
+        <span>ఆంధ్రప్రదేశ్ పౌర సేవల సమాచార వేదిక</span>
+      </div>
+      <div class="utility-actions">
+        <div class="font-resizer">
+          <button id="fontDecBtn" class="font-btn" aria-label="Decrease Font">A-</button>
+          <button id="fontResetBtn" class="font-btn" aria-label="Reset Font">A</button>
+          <button id="fontIncBtn" class="font-btn" aria-label="Increase Font">A+</button>
+        </div>
+        <button id="langToggleBtn" class="lang-toggle-btn">🌐 English</button>
+        <button id="themeToggleBtn" class="theme-toggle-btn">🌙 డార్క్ మోడ్</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header with New Logo & Memorable Brand Name (మన AP సేవలు) -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="index.html" class="brand-wrapper">
+        <!-- Golden Crest SVG Logo -->
+        <svg class="brand-emblem-svg" width="48" height="48" style="width: 48px; height: 48px; min-width: 48px; border-radius: 12px; flex-shrink: 0;" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="48" fill="#013449" stroke="#f59e0b" stroke-width="4"/>
+          <circle cx="50" cy="50" r="40" fill="#025373" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4 2"/>
+          <path d="M50 18 L55 32 L70 32 L58 41 L62 55 L50 46 L38 55 L42 41 L30 32 L45 32 Z" fill="#f59e0b"/>
+          <text x="50" y="72" font-size="16" font-family="'Outfit', sans-serif" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="1">AP</text>
+          <text x="50" y="85" font-size="8" font-family="'Noto Sans Telugu', sans-serif" font-weight="700" fill="#f59e0b" text-anchor="middle">సేవలు</text>
+        </svg>
+        <div class="brand-info">
+          <div class="site-title">
+            <span>మన AP సేవలు</span>
+            <span style="font-size: 0.78rem; background: var(--secondary); color:#fff; padding: 1px 6px; border-radius: 4px; font-weight: 700;">LIVE</span>
+          </div>
+          <div class="site-tagline">ఆంధ్రప్రదేశ్ డిజిటల్ పౌర సేవా మిత్ర (Mana AP Sevalu)</div>
+        </div>
+      </a>
+
+      <!-- Navigation -->
+      <nav id="mainNav" class="main-nav">
+        <a href="index.html" class="nav-link active">🏠 హోమ్</a>
+        <a href="pages/identity.html" class="nav-link">🪪 గుర్తింపు పత్రాలు</a>
+        <a href="pages/schemes.html" class="nav-link">🏛️ పథకాలు</a>
+        <a href="pages/jobs.html" class="nav-link">💼 ఉద్యోగాలు</a>
+        <a href="pages/farmers.html" class="nav-link">🌾 రైతు సేవలు</a>
+        <a href="pages/education.html" class="nav-link">🎓 విద్య</a>
+        <a href="pages/bills.html" class="nav-link">⚡ బిల్లులు</a>
+        <a href="pages/emergency.html" class="nav-link emergency-nav-btn">🚨 అత్యవసరం</a>
+      </nav>
+
+      <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="Mobile Navigation">☰</button>
+    </div>
+  </header>
+
+  <!-- Live Announcement Ticker with Isolated Viewport (No Overlap) -->
+  <div class="announcement-ticker">
+    <div class="container ticker-inner">
+      <div class="ticker-badge-wrapper">
+        <div class="ticker-badge" data-translate-key="ticker_label">🔔 తాజా ప్రకటనలు</div>
+      </div>
+      <div class="ticker-marquee-viewport">
+        <div class="ticker-scroll-text">
+          📢 మెగా DSC 16,347+ టీచర్ పోస్టుల దరఖాస్తులు ప్రారంభం &bull; రైతు భరోసా ఈ-క్రాప్ నమోదు గ్రామ ఆర్బీకేలలో ప్రారంభమైంది &bull; నూతన బియ్యం కార్డుల ఈ-కేవైసీ సచివాలయాల్లో అందుబాటులో ఉంది &bull; గృహ జ్యోతి 200 యూనిట్ల ఉచిత విద్యుత్ జీరో బిల్లుల పరిశీలన!
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Emergency Speed Dial Strip -->
+  <div class="emergency-strip">
+    <div class="container emergency-flex">
+      <div class="emergency-label">
+        <span>🚨</span>
+        <span>24x7 తక్షణ అత్యవసర నంబర్లు:</span>
+      </div>
+      <div class="speed-dial-chips">
+        <a href="tel:112" class="speed-chip" style="color: #dc2626;">🚨 112 జాతీయ హెల్ప్‌లైన్</a>
+        <a href="tel:100" class="speed-chip">👮 100 పోలీస్</a>
+        <a href="tel:108" class="speed-chip">🚑 108 అంబులెన్స్</a>
+        <a href="tel:101" class="speed-chip">🚒 101 ఫైర్</a>
+        <a href="tel:1930" class="speed-chip" style="color: #0284c7;">💻 1930 సైబర్ క్రైమ్</a>
+        <a href="tel:181" class="speed-chip" style="color: #e11d48;">👩 181 మహిళా హెల్ప్‌లైన్</a>
+        <a href="tel:1098" class="speed-chip">👶 1098 చైల్డ్‌లైన్</a>
+        <a href="tel:1902" class="speed-chip" style="color: #059669;">🏛️ 1902 సీఎం గ్రీవెన్స్</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Section with Smart Instant Search -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-pill-tag">✨ ఆంధ్రప్రదేశ్ పౌరుల సమగ్ర డిజిటల్ నాలెడ్జ్ గైడ్</div>
+      <h1 class="hero-heading">ప్రభుత్వ సేవలు, పథకాలు & ఉద్యోగాల పూర్తి సమాచారం ఒకే చోట</h1>
+      <p class="hero-subtext">
+        అర్హతలు, పత్రాల చెక్‌లిస్ట్, స్టెప్ బై స్టెప్ దరఖాస్తు విధానం మరియు 100% పనిచేసే అధికారిక ప్రత్యామ్నాయ వర్కింగ్ లింకులు.
+      </p>
+
+      <!-- Global Search Box -->
+      <div class="search-box-wrapper">
+        <div class="search-input-group">
+          <select id="searchCategorySelect" class="search-category-select" aria-label="Select Category">
+            <option value="all">అన్ని రంగాలు</option>
+            <option value="identity">గుర్తింపు పత్రాలు</option>
+            <option value="schemes">సంక్షేమ పథకాలు</option>
+            <option value="jobs">ఉద్యోగాలు</option>
+            <option value="farmers">రైతు సేవలు</option>
+            <option value="education">విద్య & ప్రవేశాలు</option>
+          </select>
+          <input 
+            type="text" 
+            id="globalSearchInput" 
+            class="global-search-input" 
+            placeholder="ఆధార్, రేషన్ కార్డు, రైతు భరోసా, DSC, స్కాలర్‌షిప్ అని టైప్ చేయండి..."
+            autocomplete="off"
+            aria-label="Search Services"
+          >
+          <button class="search-submit-btn" aria-label="Search Submit">
+            <span>🔍</span>
+            <span>వెతకండి</span>
+          </button>
+        </div>
+
+        <!-- Instant Results Dropdown Container -->
+        <div id="instantSearchResults" class="instant-search-results"></div>
+
+        <!-- Quick Tags -->
+        <div class="quick-search-tags">
+          <span style="opacity: 0.9;">ప్రముఖ శోధనలు:</span>
+          <a href="pages/service-detail.html?id=aadhaar" class="quick-tag">ఆధార్ కార్డు</a>
+          <a href="pages/service-detail.html?id=ration" class="quick-tag">బియ్యం కార్డు</a>
+          <a href="pages/service-detail.html?id=rythu-bharosa" class="quick-tag">రైతు భరోసా</a>
+          <a href="pages/service-detail.html?id=aarogyasri" class="quick-tag">ఆరోగ్యశ్రీ</a>
+          <a href="pages/service-detail.html?id=ap-mega-dsc" class="quick-tag">మెగా DSC</a>
+          <a href="pages/service-detail.html?id=gruha-jyothi" class="quick-tag">గృహ జ్యోతి</a>
+          <a href="pages/service-detail.html?id=property-tax" class="quick-tag">ఆస్తి పన్ను</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Google AdSense Ready Slot 1: Top Leaderboard Banner -->
+  <div class="container ad-slot-wrapper">
+    <div class="ad-banner-placeholder">
+      <span class="ad-tag-label">స్పాన్సర్డ్ / Advertisement</span>
+      <div class="ad-sponsored-content">
+        <div class="ad-info-box">
+          <div class="ad-info-title">📢 మీ మొబైల్‌లోనే తాజా ప్రభుత్వ ఉద్యోగాల అలర్ట్స్ పొందండి</div>
+          <div class="ad-info-desc">ఉచిత వాట్సాప్ & టెలిగ్రామ్ అలర్ట్స్ గ్రూప్‌లో ఇప్పుడే చేరండి. రోజూ సరికొత్త జీవోలు, నోటిఫికేషన్లు.</div>
+        </div>
+        <a href="https://telegram.org" target="_blank" rel="noopener noreferrer" class="btn-telegram-join">
+          <span>📱</span>
+          <span>ఉచితంగా చేరండి</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content: Category Knowledge Hub Grid -->
+  <main class="container section-padding">
+    <div class="section-header">
+      <h2 class="section-title">ప్రధాన సేవా రంగాలు (Service Categories)</h2>
+      <p class="section-subtitle">మీకు కావలసిన కేటగిరీని ఎంచుకుని పూర్తి మార్గదర్శకాలు మరియు అధికారిక పోర్టల్స్ వీక్షించండి</p>
+    </div>
+
+    <div class="category-grid">
+      <!-- 1. Identity -->
+      <a href="pages/identity.html" class="category-card">
+        <div class="category-icon-bubble">🪪</div>
+        <h3>గుర్తింపు పత్రాలు</h3>
+        <p>ఆధార్, పాన్ కార్డు, ఓటర్ ఐడీ, బియ్యం కార్డు, డ్రైవింగ్ లైసెన్స్ మరియు కుల/ఆదాయ ధృవీకరణ పత్రాలు.</p>
+        <div class="category-card-arrow">గైడ్ వీక్షించండి →</div>
+      </a>
+
+      <!-- 2. Schemes -->
+      <a href="pages/schemes.html" class="category-card">
+        <div class="category-icon-bubble">🏛️</div>
+        <h3>ప్రభుత్వ పథకాలు</h3>
+        <p>రైతు భరోసా, ఆరోగ్యశ్రీ, తల్లికి వందనం, ఎన్టీఆర్ పింఛను, గృహ జ్యోతి మరియు పీఎం ఆవాస్ యోజన.</p>
+        <div class="category-card-arrow">గైడ్ వీక్షించండి →</div>
+      </a>
+
+      <!-- 3. Jobs -->
+      <a href="pages/jobs.html" class="category-card">
+        <div class="category-icon-bubble">💼</div>
+        <h3>ఉద్యోగాలు & రిక్రూట్‌మెంట్</h3>
+        <p>APPSC గ్రూప్-1 & 2, మెగా DSC టీచర్లు, ఏపీ పోలీస్ SI/కానిస్టేబుల్, సచివాలయం మరియు రైల్వే ఉద్యోగాలు.</p>
+        <div class="category-card-arrow">గైడ్ వీక్షించండి →</div>
+      </a>
+
+      <!-- 4. Farmers -->
+      <a href="pages/farmers.html" class="category-card">
+        <div class="category-icon-bubble">🌾</div>
+        <h3>రైతు సేవలు & వ్యవసాయం</h3>
+        <p>ఈ-క్రాప్ బుకింగ్, ఉచిత పంటల బీమా, సాయిల్ హెల్త్ కార్డ్, డ్రిప్ ఇరిగేషన్ మరియు ఆర్బీకే సేవలు.</p>
+        <div class="category-card-arrow">గైడ్ వీక్షించండి →</div>
+      </a>
+
+      <!-- 5. Education -->
+      <a href="pages/education.html" class="category-card">
+        <div class="category-icon-bubble">🎓</div>
+        <h3>విద్య & ప్రవేశాలు</h3>
+        <p>AP EAPCET, POLYCET, OAMDC డిగ్రీ ప్రవేశాలు మరియు జ్ఞానభూమి ఫీజు రీయింబర్స్‌మెంట్.</p>
+        <div class="category-card-arrow">గైడ్ వీక్షించండి →</div>
+      </a>
+
+      <!-- 6. Bills & Utilities -->
+      <a href="pages/bills.html" class="category-card">
+        <div class="category-icon-bubble">⚡</div>
+        <h3>బిల్లులు & యుటిలిటీస్</h3>
+        <p>విద్యుత్ బిల్లులు, మున్సిపల్ ఆస్తి పన్ను, LPG సిలిండర్ బుకింగ్ మరియు ట్రాఫిక్ ఈ-చలానా చెల్లింపులు.</p>
+        <div class="category-card-arrow">గైడ్ వీక్షించండి →</div>
+      </a>
+    </div>
+
+    <!-- Smart Citizen Eligibility Quick Calculator Tool -->
+    <div style="background: var(--bg-card); border: 2px solid var(--border-light); border-radius: var(--radius-lg); padding: 28px; margin: 32px 0; box-shadow: var(--shadow-sm);">
+      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 16px;">
+        <div>
+          <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--primary); display: flex; align-items: center; gap: 8px;">
+            <span>🧮</span>
+            <span>స్మార్ట్ సిటిజన్ అర్హత క్విక్ చెకర్ (Instant Eligibility Tool)</span>
+          </h3>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); margin-top: 4px;">
+            మీ వయస్సు, కుటుంబ కార్డు మరియు వృత్తి వివరాలను ఎంచుకుని మీకు వర్తించే ప్రభుత్వ పథకాలను తక్షణమే తెలుసుకోండి.
+          </p>
+        </div>
+        <div id="autoDeadlineBadge" style="display: flex; align-items: center; gap: 6px; font-size: 0.82rem; background: var(--bg-subtle); padding: 6px 12px; border-radius: 20px; border: 1px solid var(--border-light);">
+          <!-- Live Auto Deadlines injected here -->
+        </div>
+      </div>
+
+      <form id="citizenEligibilityForm" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; align-items: end;">
+        <div>
+          <label style="display: block; font-size: 0.82rem; font-weight: 700; margin-bottom: 6px; color: var(--text-secondary);">మీ వయస్సు (Age):</label>
+          <input type="number" id="calcAge" class="global-search-input" style="border: 1px solid var(--border-medium); border-radius: var(--radius-sm); padding: 10px; width: 100%;" value="28" min="1" max="110">
+        </div>
+        <div>
+          <label style="display: block; font-size: 0.82rem; font-weight: 700; margin-bottom: 6px; color: var(--text-secondary);">మీ వృత్తి / వర్గం:</label>
+          <select id="calcOccupation" class="search-category-select" style="max-width: 100%; width: 100%; border: 1px solid var(--border-medium); height: 44px;">
+            <option value="farmer">రైతు / కౌలు రైతు</option>
+            <option value="student">విద్యార్థి (Student / Scholar)</option>
+            <option value="jobseeker">నిరుద్యోగి / ఉద్యోగార్థి</option>
+            <option value="other">ఇతర వృత్తులు / వ్యాపారం</option>
+          </select>
+        </div>
+        <div>
+          <label style="display: block; font-size: 0.82rem; font-weight: 700; margin-bottom: 6px; color: var(--text-secondary);">వ్యవసాయ భూమి వివరాలు:</label>
+          <select id="calcLand" class="search-category-select" style="max-width: 100%; width: 100%; border: 1px solid var(--border-medium); height: 44px;">
+            <option value="owns_land">స్వంత భూమి ఉంది</option>
+            <option value="tenant">కౌలు భూమి (Tenant Farmer)</option>
+            <option value="no_land">భూమి లేదు (Non-Agricultural)</option>
+          </select>
+        </div>
+        <div>
+          <label style="display: block; font-size: 0.82rem; font-weight: 700; margin-bottom: 6px; color: var(--text-secondary);">బియ్యం కార్డు (White Card)?</label>
+          <select id="calcCard" class="search-category-select" style="max-width: 100%; width: 100%; border: 1px solid var(--border-medium); height: 44px;">
+            <option value="yes">అవును, బియ్యం కార్డు ఉంది</option>
+            <option value="no">లేదు / కొత్తగా అప్లై చేస్తున్నాను</option>
+          </select>
+        </div>
+        <div>
+          <button type="submit" class="search-submit-btn" style="width: 100%; justify-content: center; height: 44px;">
+            <span>⚡</span>
+            <span>అర్హత చెక్ చేయండి</span>
+          </button>
+        </div>
+      </form>
+
+      <!-- Instant Output Container -->
+      <div id="citizenEligibilityResults" style="display: none;"></div>
+    </div>
+
+    <!-- Free Citizen WhatsApp / Telegram Alert Banner -->
+    <div class="citizen-alert-banner">
+      <div class="alert-banner-info">
+        <h4>📲 ఆంధ్రప్రదేశ్ పౌర సేవా అలర్ట్స్ ఛానెల్</h4>
+        <p>కొత్త పథకాలు, ఫీజు విడుదల తేదీలు మరియు జాబ్ నోటిఫికేషన్లను తక్షణమే మీ మొబైల్ వాట్సాప్‌లో పొందండి.</p>
+      </div>
+      <div class="alert-join-btns">
+        <a href="https://whatsapp.com" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-join">
+          <span>💬</span>
+          <span>WhatsApp గ్రూప్</span>
+        </a>
+        <a href="https://telegram.org" target="_blank" rel="noopener noreferrer" class="btn-telegram-join">
+          <span>📢</span>
+          <span>Telegram ఛానెల్</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Featured Guides Quick Carousel -->
+    <div class="section-header" style="margin-top: 40px;">
+      <h2 class="section-title">అత్యంత ప్రాధాన్యత గల సేవలు (Featured Guides)</h2>
+      <p class="section-subtitle">లక్షలాది పౌరులు ప్రతిరోజూ వినియోగించే టాప్ గైడ్లు మరియు మల్టీ-సర్వర్ పోర్టల్స్</p>
+    </div>
+
+    <div class="service-cards-grid">
+      <!-- Card 1: Aadhaar -->
+      <div class="service-card">
+        <div>
+          <div class="service-header-row">
+            <span class="service-icon">🪪</span>
+            <div>
+              <h4>ఆధార్ కార్డు నమోదు & అప్‌డేట్</h4>
+              <span class="service-dept-badge">UIDAI భారత ప్రభుత్వం</span>
+            </div>
+          </div>
+          <div class="service-card-body">
+            <p>కొత్త ఆధార్ నమోదు, మొబైల్ నంబర్ లింక్, అడ్రస్ మార్పు, బయోమెట్రిక్స్ అప్‌డేట్ మరియు e-Aadhaar డౌన్‌లోడ్.</p>
+          </div>
+        </div>
+        <div class="service-action-row">
+          <a href="pages/service-detail.html?id=aadhaar" class="guide-read-btn">పూర్తి గైడ్ చదవండి →</a>
+          <a href="https://myaadhaar.uidai.gov.in" target="_blank" rel="noopener noreferrer" class="tag-btn" style="font-size:0.75rem;">పోర్టల్ ↗</a>
+        </div>
+      </div>
+
+      <!-- Card 2: Rice Card -->
+      <div class="service-card">
+        <div>
+          <div class="service-header-row">
+            <span class="service-icon">🌾</span>
+            <div>
+              <h4>బియ్యం కార్డు / రేషన్ సేవలు</h4>
+              <span class="service-dept-badge">పౌర సరఫరాల శాఖ AP</span>
+            </div>
+          </div>
+          <div class="service-card-body">
+            <p>కొత్త బియ్యం కార్డు దరఖాస్తు, కుటుంబ సభ్యుల చేరిక, కార్డు విభజన మరియు నెలవారీ సరుకుల కోటా వివరాలు.</p>
+          </div>
+        </div>
+        <div class="service-action-row">
+          <a href="pages/service-detail.html?id=ration" class="guide-read-btn">పూర్తి గైడ్ చదవండి →</a>
+          <a href="https://aepds.ap.gov.in/" target="_blank" rel="noopener noreferrer" class="tag-btn" style="font-size:0.75rem;">పోర్టల్ ↗</a>
+        </div>
+      </div>
+
+      <!-- Card 3: Rythu Bharosa -->
+      <div class="service-card">
+        <div>
+          <div class="service-header-row">
+            <span class="service-icon">🚜</span>
+            <div>
+              <h4>రైతు భరోసా - పీఎం కిసాన్</h4>
+              <span class="service-dept-badge">వ్యవసాయ శాఖ AP</span>
+            </div>
+          </div>
+          <div class="service-card-body">
+            <p>ఏడాదికి ₹13,500 పెట్టుబడి సాయం, కౌలు రైతుల CCRC నమోదు మరియు ఖాతాలో నగదు జమ స్టేటస్ పరిశీలన.</p>
+          </div>
+        </div>
+        <div class="service-action-row">
+          <a href="pages/service-detail.html?id=rythu-bharosa" class="guide-read-btn">పూర్తి గైడ్ చదవండి →</a>
+          <a href="https://pmkisan.gov.in/" target="_blank" rel="noopener noreferrer" class="tag-btn" style="font-size:0.75rem;">పోర్టల్ ↗</a>
+        </div>
+      </div>
+
+      <!-- Card 4: Mega DSC -->
+      <div class="service-card">
+        <div>
+          <div class="service-header-row">
+            <span class="service-icon">📚</span>
+            <div>
+              <h4>మెగా DSC టీచర్ రిక్రూట్‌మెంట్</h4>
+              <span class="service-dept-badge">పాఠశాల విద్యాశాఖ AP</span>
+            </div>
+          </div>
+          <div class="service-card-body">
+            <p>16,347+ ఉపాధ్యాయ పోస్టుల భర్తీ, ఎస్జీటీ, స్కూల్ అసిస్టెంట్ సిలబస్, టెట్ వెయిటేజీ మరియు ఆన్‌లైన్ దరఖాస్తు.</p>
+          </div>
+        </div>
+        <div class="service-action-row">
+          <a href="pages/service-detail.html?id=ap-mega-dsc" class="guide-read-btn">పూర్తి గైడ్ చదవండి →</a>
+          <a href="https://cse.ap.gov.in" target="_blank" rel="noopener noreferrer" class="tag-btn" style="font-size:0.75rem;">పోర్టల్ ↗</a>
+        </div>
+      </div>
+
+      <!-- Card 5: Aarogyasri -->
+      <div class="service-card">
+        <div>
+          <div class="service-header-row">
+            <span class="service-icon">🏥</span>
+            <div>
+              <h4>డా. వైఎస్సార్ ఆరోగ్యశ్రీ</h4>
+              <span class="service-dept-badge">వైద్య ఆరోగ్య శాఖ AP</span>
+            </div>
+          </div>
+          <div class="service-card-body">
+            <p>₹25 లక్షల వరకు ఉచిత కార్పొరేట్ నగదు రహిత వైద్యం, నెట్‌వర్క్ ఆసుపత్రుల జాబితా మరియు ఆరోగ్య మిత్ర సేవలు.</p>
+          </div>
+        </div>
+        <div class="service-action-row">
+          <a href="pages/service-detail.html?id=aarogyasri" class="guide-read-btn">పూర్తి గైడ్ చదవండి →</a>
+          <a href="https://aarogyasri.ap.gov.in/" target="_blank" rel="noopener noreferrer" class="tag-btn" style="font-size:0.75rem;">పోర్టల్ ↗</a>
+        </div>
+      </div>
+
+      <!-- Card 6: Gruha Jyothi -->
+      <div class="service-card">
+        <div>
+          <div class="service-header-row">
+            <span class="service-icon">💡</span>
+            <div>
+              <h4>గృహ జ్యోతి - ఉచిత విద్యుత్</h4>
+              <span class="service-dept-badge">ఇంధన శాఖ డిస్కంలు AP</span>
+            </div>
+          </div>
+          <div class="service-card-body">
+            <p>నెలకు 200 యూనిట్ల వరకు పూర్తి ఉచిత విద్యుత్, జీరో కరెంట్ బిల్లు మరియు మీటర్‌కు ఆధార్ అనుసంధానం.</p>
+          </div>
+        </div>
+        <div class="service-action-row">
+          <a href="pages/service-detail.html?id=gruha-jyothi" class="guide-read-btn">పూర్తి గైడ్ చదవండి →</a>
+          <a href="https://www.apeasternpower.com/" target="_blank" rel="noopener noreferrer" class="tag-btn" style="font-size:0.75rem;">పోర్టల్ ↗</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Master Site Footer with Rules & Terms Links -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-title">
+            <span>మన AP సేవలు</span>
+          </div>
+          <p class="footer-about-text">
+            ఆంధ్రప్రదేశ్ పౌరులకు ప్రభుత్వ సేవలు, సంక్షేమ పథకాలు, ఉద్యోగ నోటిఫికేషన్లు, వ్యవసాయ సమాచారం మరియు అత్యవసర సేవలను ఒకే చోట సులభంగా అందించే డిజిటల్ నాలెడ్జ్ పోర్టల్.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>గుర్తింపు సేవలు</h4>
+          <ul class="footer-links-list">
+            <li><a href="pages/service-detail.html?id=aadhaar">ఆధార్ కార్డు గైడ్</a></li>
+            <li><a href="pages/service-detail.html?id=pan">పాన్ కార్డు దరఖాస్తు</a></li>
+            <li><a href="pages/service-detail.html?id=voter">ఓటర్ ఐడీ నమోదు</a></li>
+            <li><a href="pages/service-detail.html?id=ration">బియ్యం కార్డు సేవలు</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>పోర్టల్ నిబంధనలు</h4>
+          <ul class="footer-links-list">
+            <li><a href="pages/terms.html">📜 పోర్టల్ రూల్స్ & నిబంధనలు</a></li>
+            <li><a href="pages/terms.html#privacy">🔒 గోప్యతా విధానం (Privacy)</a></li>
+            <li><a href="pages/terms.html#disclaimer">⚖️ బాధ్యతా ప్రకటన (Disclaimer)</a></li>
+            <li><a href="pages/contact.html">📞 సిటిజన్ సపోర్ట్ & గ్రీవెన్స్</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>అత్యవసర హెల్ప్‌లైన్లు</h4>
+          <ul class="footer-links-list">
+            <li><a href="tel:112">🚨 112 - జాతీయ అత్యవసరం</a></li>
+            <li><a href="tel:100">👮 100 - పోలీస్</a></li>
+            <li><a href="tel:108">🚑 108 - అంబులెన్స్</a></li>
+            <li><a href="tel:1930">💻 1930 - సైబర్ క్రైమ్</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom-bar">
+        <div>© 2026 మన AP సేవలు (Mana AP Sevalu). All Rights Reserved.</div>
+        <div class="disclaimer-badge">
+          గమనిక: ఈ పోర్టల్ పౌరులకు అవగాహన కల్పించే స్వతంత్ర డిజిటల్ గైడ్. ప్రతి పేజీ చివర సంబంధిత అధికారిక ప్రభుత్వ వెబ్‌సైట్ మరియు ప్రత్యామ్నాయ సర్వర్ లింకులు అందించబడతాయి.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Static Netlify Form Parser Hook for Instant Form Detection -->
+  <form name="citizen-feedback" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="text" name="rating" />
+    <input type="text" name="category" />
+    <textarea name="message"></textarea>
+  </form>
+
+</body>
+</html>

@@ -1,0 +1,122 @@
+[
+  {
+    "id": "112",
+    "name_te": "112 - జాతీయ అత్యవసర రెస్పాన్స్ సిస్టమ్ (ERSS)",
+    "name_en": "112 - National Emergency Response Support System",
+    "number": "112",
+    "type": "National Universal Emergency",
+    "icon": "🚨",
+    "desc_te": "పోలీస్, ఫైర్, అంబులెన్స్ అన్నింటికీ ఒకే ఒక్క ఆల్-ఇన్-వన్ అత్యవసర టోల్‌ఫ్రీ నంబర్. 24x7 జియో-లొకేషన్ సదుపాయం.",
+    "desc_en": "Single emergency response number across India for Police, Fire, Ambulance with GPS dispatch.",
+    "speed_dial": true,
+    "priority": 1
+  },
+  {
+    "id": "100",
+    "name_te": "100 - ఆంధ్రప్రదేశ్ పోలీస్ కంట్రోల్ రూమ్",
+    "name_en": "100 - AP Police Emergency Helpline",
+    "number": "100",
+    "type": "Police Emergency",
+    "icon": "👮",
+    "desc_te": "శాంతిభద్రతలు, నేరాల నియంత్రణ, తక్షణ పోలీస్ పెట్రోలింగ్ వాహనాల సాయం కోసం నేరుగా కాల్ చేయండి.",
+    "desc_en": "Immediate police assistance, crime reporting, PCR van dispatch across all AP districts.",
+    "speed_dial": true,
+    "priority": 2
+  },
+  {
+    "id": "108",
+    "name_te": "108 - వైఎస్సార్ ఉచిత అంబులెన్స్ సర్వీస్",
+    "name_en": "108 - Free Emergency Medical Ambulance Service",
+    "number": "108",
+    "type": "Medical Emergency",
+    "icon": "🚑",
+    "desc_te": "ప్రమాదాలు, గుండెపోటు, విషాదాలు, అత్యవసర ప్రసవాలు మరియు క్రిటికల్ పేషెంట్లకు ఉచిత ఆధునిక అంబులెన్స్.",
+    "desc_en": "Free 24/7 advanced life support ambulance for road accidents, heart attacks, and trauma care.",
+    "speed_dial": true,
+    "priority": 3
+  },
+  {
+    "id": "101",
+    "name_te": "101 - అగ్నిమాపక మరియు విపత్తు రెస్క్యూ (Fire)",
+    "name_en": "101 - AP Fire & Emergency Rescue Services",
+    "number": "101",
+    "type": "Fire & Rescue",
+    "icon": "🚒",
+    "desc_te": "అగ్ని ప్రమాదాలు, భవనాల కూలిపోవడం, గ్యాస్ లీకేజీలు, రసాయన ప్రమాదాలు మరియు నీటిలో మునిగిపోయిన రెస్క్యూ సేవలు.",
+    "desc_en": "Fire emergencies, gas leaks, structural collapse and emergency rescue operations.",
+    "speed_dial": true,
+    "priority": 4
+  },
+  {
+    "id": "1930",
+    "name_te": "1930 - జాతీయ సైబర్ క్రైమ్ హెల్ప్‌లైన్",
+    "name_en": "1930 - National Cyber Financial Crime Reporting",
+    "number": "1930",
+    "type": "Cyber Security",
+    "icon": "💻",
+    "desc_te": "ఆన్‌లైన్ బ్యాంకింగ్ మోసాలు, OTP స్కాములు, డిజిటల్ అరెస్ట్ బెదిరింపులు జరిగిన వెంటనే గోల్డెన్ అవర్‌లో కాల్ చేయండి.",
+    "desc_en": "Report financial cyber fraud, online scams, phishing immediately to freeze transacted amounts.",
+    "speed_dial": true,
+    "priority": 5
+  },
+  {
+    "id": "181",
+    "name_te": "181 - మహిళల రక్షణ & భద్రతా హెల్ప్‌లైన్",
+    "name_en": "181 - Women Helpline / Disha Support",
+    "number": "181",
+    "type": "Women Safety",
+    "icon": "👩",
+    "desc_te": "గృహ హింస, ఈవ్ టీజింగ్, లైంగిక వేధింపులు మరియు ఆపదలో ఉన్న స్త్రీలకు 24 గంటల రక్షణ, న్యాయ, వైద్య కౌన్సెలింగ్.",
+    "desc_en": "Toll-free 24/7 women emergency help, shelter support, legal counseling, and Disha SOS coordination.",
+    "speed_dial": true,
+    "priority": 6
+  },
+  {
+    "id": "1098",
+    "name_te": "1098 - చైల్డ్‌లైన్ (పిల్లల రక్షణ & సహాయం)",
+    "name_en": "1098 - Childline India Foundation",
+    "number": "1098",
+    "type": "Child Helpline",
+    "icon": "🧒",
+    "desc_te": "బాల కార్మికులు, బాల్య వివాహాలు, తప్పిపోయిన పిల్లలు, అనాథలు మరియు వేధింపులకు గురవుతున్న పిల్లల రక్షణ సేవలు.",
+    "desc_en": "Free 24/7 emergency phone outreach service for children in need of care and protection.",
+    "speed_dial": true,
+    "priority": 7
+  },
+  {
+    "id": "104",
+    "name_te": "104 - 24x7 ఉచిత ప్రభుత్వ వైద్య సలహా సేవ",
+    "name_en": "104 - Fixed Day Health Services & Medical Advice",
+    "number": "104",
+    "type": "Health Advisory",
+    "icon": "🩺",
+    "desc_te": "డాక్టర్ల సలహాలు, ప్రభుత్వ ఆరోగ్య పథకాల సమాచారం, మానసిక ఒత్తిడి కౌన్సెలింగ్ మరియు ఆరోగ్యశ్రీ హాస్పిటల్ సమాచారం.",
+    "desc_en": "Telephonic medical consultation, grievance redressal for health services, mental health counseling.",
+    "speed_dial": true,
+    "priority": 8
+  },
+  {
+    "id": "1070",
+    "name_te": "1070 / 1077 - రాష్ట్ర & జిల్లా విపత్తు నిర్వహణ (Disaster)",
+    "name_en": "1070 - State Disaster Management Authority (APSDMA)",
+    "number": "1070",
+    "type": "Disaster Management",
+    "icon": "🌪️",
+    "desc_te": "తుఫానులు, వరదలు, పిడుగుపాట్లు, భూకంపాలు మరియు భారీ వర్షాల హెచ్చరికలు మరియు రెస్క్యూ సమన్వయం.",
+    "desc_en": "Cyclones, floods, lightning alerts and relief shelter coordination in Andhra Pradesh.",
+    "speed_dial": false,
+    "priority": 9
+  },
+  {
+    "id": "1902",
+    "name_te": "1902 - జగనన్నకు చెబుదాం / సిటిజన్ గ్రీవెన్స్ సెల్",
+    "name_en": "1902 - AP Public Grievance Redressal Helpline",
+    "number": "1902",
+    "type": "Govt Grievance",
+    "icon": "🏛️",
+    "desc_te": "ప్రభుత్వ పథకాలు, పింఛన్లు, రేషన్, సర్టిఫికెట్లలో సమస్యలపై నేరుగా ముఖ్యమంత్రి కార్యాలయానికి ఫిర్యాదు చేయడానికి.",
+    "desc_en": "Direct government service complaint and escalation desk with unique tracking token.",
+    "speed_dial": false,
+    "priority": 10
+  }
+]

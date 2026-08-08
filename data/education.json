@@ -1,0 +1,50 @@
+[
+  {
+    "id": "eapcet",
+    "name_te": "ఏపీ ఈఏపీసెట్ / ఎంసెట్ (AP EAPCET - Engineering, Ag & Pharmacy)",
+    "name_en": "AP EAPCET (Engineering, Agriculture & Pharmacy Common Entrance Test)",
+    "level_te": "ఇంటర్మీడియట్ తర్వాత ఇంజనీరింగ్ & అగ్రికల్చర్ ప్రవేశాలు",
+    "level_en": "Undergraduate Admissions in Engineering, Ag & Pharma",
+    "conducted_by": "జవహర్‌లాల్ నెహ్రూ సాంకేతిక విశ్వవిద్యాలయం (JNTU) / APSCHE",
+    "eligibility_te": "ఇంటర్మీడియట్ (MPC / BiPC) లో 45% (రిజర్వ్డ్ కేటగిరీలకు 40%) మార్కులు",
+    "eligibility_en": "10+2 with MPC/BiPC with min 45% marks",
+    "official_url": "https://cets.apsche.ap.gov.in",
+    "guide_url": "pages/service-detail.html?id=eapcet"
+  },
+  {
+    "id": "polycet",
+    "name_te": "ఏపీ పాలిసెట్ (AP POLYCET - Diploma in Engineering)",
+    "name_en": "AP POLYCET (Polytechnic Common Entrance Test)",
+    "level_te": "10వ తరగతి తర్వాత 3 ఏళ్ల ఇంజనీరింగ్ డిప్లొమా ప్రవేశాలు",
+    "level_en": "3-Year Technical Engineering Diploma after 10th",
+    "conducted_by": "స్టేట్ బోర్డ్ ఆఫ్ టెక్నికల్ ఎడ్యుకేషన్ & ట్రైనింగ్ (SBTET AP)",
+    "eligibility_te": "10వ తరగతి (SSC) లో మ్యాథమెటిక్స్ సహా కనీస ఉత్తీర్ణత",
+    "eligibility_en": "Passed 10th class / SSC with Mathematics",
+    "official_url": "https://polycetap.nic.in",
+    "guide_url": "pages/service-detail.html?id=polycet"
+  },
+  {
+    "id": "jnanabhumi-scholarship",
+    "name_te": "జ్ఞానభూమి పోస్ట్-మెట్రిక్ స్కాలర్‌షిప్స్ & ఫీజు రీయింబర్స్‌మెంట్",
+    "name_en": "Jnanabhumi Post-Matric Scholarship & Fee Reimbursement",
+    "level_te": "డిగ్రీ, పీజీ, ప్రొఫెషనల్ కోర్సుల విద్యార్థులు",
+    "level_en": "Degree, PG, Professional Courses",
+    "conducted_by": "సాంఘిక సంక్షేమ శాఖ, ఆంధ్రప్రదేశ్ ప్రభుత్వం",
+    "eligibility_te": "కుటుంబ వార్షిక ఆదాయం ₹2.50 లక్షల లోపు ఉండి బియ్యం కార్డు కలిగి ఉండాలి",
+    "eligibility_en": "Annual family income < ₹2.5 Lakhs & active Rice Card",
+    "official_url": "https://jnanabhumi.ap.gov.in",
+    "guide_url": "pages/service-detail.html?id=jnanabhumi-scholarship"
+  },
+  {
+    "id": "ap-oamdc",
+    "name_te": "ఓఏఎండీసీ - డిగ్రీ ఆన్‌లైన్ ప్రవేశాలు (OAMDC Degree Admissions)",
+    "name_en": "OAMDC Online Admissions Module for Degree Colleges",
+    "level_te": "బీఏ, బీకాం, బీఎస్సీ, బీబీఏ, బీసీఏ కోర్సులలో వెబ్ కౌన్సెలింగ్",
+    "level_en": "BA, B.Com, B.Sc, BBA, BCA Admissions",
+    "conducted_by": "ఆంధ్రప్రదేశ్ ఉన్నత విద్యా మండలి (APSCHE)",
+    "eligibility_te": "ఇంటర్మీడియట్ లేదా తత్సమాన కోర్సు ఉత్తీర్ణత",
+    "eligibility_en": "Passed Intermediate (+2) or equivalent",
+    "official_url": "https://oamdc.apsche.ac.in",
+    "guide_url": "pages/service-detail.html?id=ap-oamdc"
+  }
+]
