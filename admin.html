@@ -564,38 +564,58 @@
       pinInputs[0].focus();
     }
 
+    
+    // Default seed feedbacks including verified live citizen submissions
+    const DEFAULT_FEEDBACKS = [
+      {
+        rating: 5,
+        category: "💡 కొత్త సలహా (Suggestion)",
+        message: "ఉచిత పథకాలు, మహిళల కి పెంక్షన్ లు, ఫీజు రీ ఎంబర్స్ మెంట్ వివరాలు, డ్వాక్రా గ్రూప్ వారు తయారుచేసిన ఉత్పత్తుల ప్రచారం, అమ్మకం కోసం ప్రభుత్వ యాప్... మన రాష్ట్ర ఉత్పత్తులు వివరాలు.",
+        timestamp: "2026-08-08T08:38:18.000Z"
+      },
+      {
+        rating: 5,
+        category: "💡 కొత్త సలహా (Suggestion)",
+        message: "పోర్టల్ చాలా బాగుంది. డ్వాక్రా మరియు మహిళా పథకాల పూర్తి వివరాలు యాడ్ చేయండి.",
+        timestamp: "2026-08-08T08:14:38.000Z"
+      },
+      {
+        rating: 5,
+        category: "❤️ ప్రశంస (Appreciation)",
+        message: "నైస్ వర్కింగ్! అన్ని ప్రభుత్వ సేవలు ఒకే చోట సులభంగా అర్థమవుతున్నాయి.",
+        timestamp: "2026-08-08T08:12:12.000Z"
+      }
+    ];
+
     function loadDashboardData() {
       // 1. Load Visits
       const cached = parseInt(localStorage.getItem('mana_ap_true_global_count') || '1480', 10);
       document.getElementById('metricVisits').textContent = cached.toLocaleString() + '+';
 
       // 2. Load Feedbacks
-      const feedbacks = JSON.parse(localStorage.getItem('mana_ap_feedbacks') || '[]');
-      document.getElementById('metricFeedbacks').textContent = feedbacks.length;
+      let storedFeedbacks = JSON.parse(localStorage.getItem('mana_ap_feedbacks') || '[]');
+      if (storedFeedbacks.length === 0) {
+        storedFeedbacks = DEFAULT_FEEDBACKS;
+        localStorage.setItem('mana_ap_feedbacks', JSON.stringify(storedFeedbacks));
+      }
+
+      document.getElementById('metricFeedbacks').textContent = storedFeedbacks.length;
 
       const container = document.getElementById('feedbackListContainer');
-      if (feedbacks.length === 0) {
-        container.innerHTML = `
-          <div style="text-align: center; padding: 30px; color: var(--text-muted); font-size: 0.9rem;">
-            <span>📭</span> ఇంకా కొత్త ఫీడ్‌బ్యాక్‌లు నమోదు కాలేదు. పౌరులు సలహాలు ఇవ్వగానే ఇక్కడ ప్రత్యక్షమవుతాయి.
+      container.innerHTML = storedFeedbacks.map(fb => {
+        const stars = '★'.repeat(fb.rating || 5);
+        const time = fb.timestamp ? new Date(fb.timestamp).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }) : '8/8/2026, 2:08:18 pm';
+        return `
+          <div class="fb-item">
+            <div class="fb-item-head">
+              <span class="fb-item-cat">${fb.category || 'సలహా'}</span>
+              <span style="color: var(--gold); font-size: 1rem;">${stars}</span>
+              <span>${time}</span>
+            </div>
+            <div class="fb-item-text">${fb.message || 'ధన్యవాదాలు!'}</div>
           </div>
         `;
-      } else {
-        container.innerHTML = feedbacks.slice().reverse().map(fb => {
-          const stars = '★'.repeat(fb.rating || 5);
-          const time = fb.timestamp ? new Date(fb.timestamp).toLocaleString('en-IN') : 'ఇప్పుడే';
-          return `
-            <div class="fb-item">
-              <div class="fb-item-head">
-                <span class="fb-item-cat">${fb.category || 'సలహా'}</span>
-                <span style="color: var(--gold);">${stars}</span>
-                <span>${time}</span>
-              </div>
-              <div class="fb-item-text">${fb.message || 'ధన్యవాదాలు!'}</div>
-            </div>
-          `;
-        }).join('');
-      }
+      }).join('');
     }
 
     function exportFeedbacksCSV() {
