@@ -1992,7 +1992,80 @@ main {
 .subtext-lead { font-size: 0.9rem !important; color: var(--text-muted) !important; margin-bottom: 20px !important; line-height: 1.6 !important; }
 .label-muted-small { font-size: 0.8rem !important; color: var(--text-muted) !important; }
 .color-gold-light { color: var(--gold-light) !important; }
-.color-red { color: var(--red) !important; }
 .mb-12 { margin-bottom: 12px !important; }
 .mb-14 { margin-bottom: 14px !important; }
 .mb-6 { margin-bottom: 6px !important; }
+
+/* ==========================================================================
+   Owner Safety & Legal Disclaimer Card (Crystal Clear High Contrast)
+   ========================================================================== */
+.owner-disclosure-card {
+  background: linear-gradient(135deg, rgba(8, 51, 68, 0.08) 0%, rgba(245, 158, 11, 0.08) 100%);
+  border: 1.5px solid #d97706;
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 32px 0 24px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] .owner-disclosure-card {
+  background: linear-gradient(135deg, rgba(8, 51, 68, 0.4) 0%, rgba(245, 158, 11, 0.15) 100%);
+  border: 1.5px solid #f59e0b;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.disclosure-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.08rem;
+  font-weight: 800;
+  color: #b45309;
+  margin-bottom: 12px;
+}
+
+[data-theme="dark"] .disclosure-header {
+  color: #fbbf24;
+}
+
+.disclosure-text {
+  font-size: 0.95rem;
+  line-height: 1.85;
+  color: #1e293b;
+  margin-bottom: 14px;
+  font-weight: 500;
+}
+
+[data-theme="dark"] .disclosure-text {
+  color: #e2e8f0;
+}
+
+.disclosure-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 1px solid rgba(217, 119, 6, 0.25);
+}
+
+.disclosure-links a {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #0284c7;
+  text-decoration: underline;
+  transition: color 0.15s;
+}
+
+.disclosure-links a:hover {
+  color: #0369a1;
+}
+
+[data-theme="dark"] .disclosure-links a {
+  color: #38bdf8;
+}
+
+[data-theme="dark"] .disclosure-links a:hover {
+  color: #7dd3fc;
+}
+
