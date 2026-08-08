@@ -12,5 +12,8 @@
   "devDependencies": {
     "electron": "^33.2.0"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "allowScripts": {
+    "electron@33.4.11": true
+  }
 }

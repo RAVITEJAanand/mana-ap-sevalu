@@ -822,3 +822,44 @@ body {
   from { transform: translateX(50px); opacity: 0; }
   to { transform: translateX(0); opacity: 1; }
 }
+
+/* Topbar Action Buttons */
+.btn-top-action {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 0.84rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-top-action:hover {
+  background: var(--bg-hover);
+  border-color: var(--gold);
+  color: var(--gold-light);
+}
+
+/* Green Live Sync Button */
+.btn-sync-live {
+  background: rgba(34, 197, 94, 0.15);
+  border-color: var(--green);
+  color: var(--green);
+}
+
+.btn-sync-live:hover {
+  background: rgba(34, 197, 94, 0.3);
+  border-color: var(--green);
+  color: #ffffff;
+}
+
+.btn-sync-live:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
