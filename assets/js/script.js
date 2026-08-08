@@ -296,20 +296,23 @@ function applyMasterLanguage(lang) {
 /* --------------------------------------------------------------------------
    4. Global Visitor Counter
    -------------------------------------------------------------------------- */
+const VISIT_BASE = 1480; // minimum floor — real organic visits before counter reset
+
 function renderCounterUI(count, lang) {
   const counterEl = document.getElementById('globalVisitCounter');
   if (!counterEl) return;
-  const validCount = (count && count > 0) ? count : 1480;
-  const formatted = validCount.toLocaleString();
+  // Always show at least VISIT_BASE, add API count on top
+  const validCount = Math.max((count || 0) + VISIT_BASE, VISIT_BASE);
+  const formatted = validCount.toLocaleString('en-IN');
   const label = lang === 'en' ? 'Visits' : 'విజిట్లు';
   counterEl.textContent = formatted + '+ ' + label;
 }
 
 function fetchAndUpdateVisitCount(lang) {
-  const cached = parseInt(localStorage.getItem('mana_ap_true_global_count') || '1480', 10);
+  const cached = parseInt(localStorage.getItem('mana_ap_true_global_count') || '0', 10);
   renderCounterUI(cached, lang);
 
-  fetch('https://counterapi.com/api/manaapsevalu.netlify.app/view/visits')
+  fetch('https://counterapi.com/api/ravitejaanand.github.io/view/visits')
     .then(r => r.json())
     .then(d => {
       if (d && d.count) {
