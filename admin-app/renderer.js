@@ -18,7 +18,8 @@ const appRenderer = (function () {
     media: window.mediaModule,
     backups: window.backupsModule,
     settings: window.settingsModule,
-    feedbacks: window.feedbacksModule
+    feedbacks: window.feedbacksModule,
+    progress: window.progressModule
   };
 
   function init() {

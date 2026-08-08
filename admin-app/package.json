@@ -5,14 +5,68 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-builder"
+    "build": "electron-builder --win --x64"
   },
   "author": "AP Citizen Hub Team",
   "license": "MIT",
-  "devDependencies": {
-    "electron": "^33.2.0"
+  "build": {
+    "appId": "com.apcitizenHub.adminLauncher",
+    "productName": "AP Citizen Hub Admin",
+    "copyright": "© 2026 Mana AP Sevalu",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "../assets/images/mana_logo.svg",
+      "sign": null,
+      "forceCodeSigning": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "AP Citizen Hub Admin"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "renderer.js",
+      "index.html",
+      "styles.css",
+      "modules/**/*",
+      "node_modules/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "../data",
+        "to": "data",
+        "filter": [
+          "**/*"
+        ]
+      },
+      {
+        "from": "../assets",
+        "to": "assets",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ]
   },
-  "dependencies": {},
+  "devDependencies": {
+    "@electron/packager": "^20.2.0",
+    "electron": "^33.2.0",
+    "electron-builder": "^24.13.3"
+  },
   "allowScripts": {
     "electron@33.4.11": true
   }

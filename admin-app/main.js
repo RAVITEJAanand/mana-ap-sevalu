@@ -9,12 +9,12 @@ const PROJECT_ROOT = path.join(__dirname, '..');
 // Auto Git Push after every save
 function autoGitPush(filename) {
   try {
-    execSync('git add .', { cwd: PROJECT_ROOT, stdio: 'pipe' });
+    // Only stage website content — NOT admin-app/ (it's in .gitignore)
+    execSync('git add data/ assets/ index.html 2>nul || git add data/ assets/', { cwd: PROJECT_ROOT, stdio: 'pipe', shell: 'powershell.exe' });
     execSync(`git commit -m "[Admin Auto-Sync] Updated ${filename} via Desktop Launcher"`, { cwd: PROJECT_ROOT, stdio: 'pipe' });
     execSync('git push origin main', { cwd: PROJECT_ROOT, stdio: 'pipe' });
     return { success: true, message: `✅ ${filename} saved + pushed to GitHub live site!` };
   } catch (err) {
-    // If nothing to commit, that's fine
     const msg = err.message || '';
     if (msg.includes('nothing to commit') || msg.includes('up-to-date')) {
       return { success: true, message: 'Already up-to-date with GitHub.' };
