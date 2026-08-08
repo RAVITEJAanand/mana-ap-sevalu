@@ -86,7 +86,7 @@
   </div>
 
   <!-- Main Guide Content Area with Sticky In-Page Box (📌 ఈ పేజీలో) -->
-  <main class="container section-padding" style="padding-top: 0;">
+  <main class="container section-padding pt-0">
     <div class="guide-layout-wrapper">
       
       <!-- 1. Sticky In-Page Box (📌 ఈ పేజీలో) -->
@@ -97,18 +97,18 @@
             <span id="tocBoxHeaderTitle" data-translate-key="toc_title">ఈ పేజీలో (Contents)</span>
           </div>
           <ul class="toc-list" id="tocNavList">
-            <li><a href="#about-sec" class="toc-link active" data-translate-key="toc_sec1">✔ ఏమిటి & ఉద్దేశ్యం?</a></li>
+            <li><a href="#about-sec" class="toc-link active" data-translate-key="toc_sec1">✔ ఏమిటి &amp; ఉద్దేశ్యం?</a></li>
             <li><a href="#eligibility-sec" class="toc-link" data-translate-key="toc_sec2">✔ ఎవరు అర్హులు?</a></li>
             <li><a href="#documents-sec" class="toc-link" data-translate-key="toc_sec3">✔ అవసరమైన పత్రాలు</a></li>
             <li><a href="#process-sec" class="toc-link" data-translate-key="toc_sec4">✔ స్టెప్ బై స్టెప్ విధానం</a></li>
-            <li><a href="#downloads-sec" class="toc-link" data-translate-key="toc_sec5">✔ డౌన్‌లోడ్‌లు & సేవలు</a></li>
+            <li><a href="#downloads-sec" class="toc-link" data-translate-key="toc_sec5">✔ డౌన్‌లోడ్‌లు &amp; సేవలు</a></li>
             <li><a href="#rules-sec" class="toc-link" data-translate-key="toc_sec6">✔ ప్రభుత్వ నియమాలు</a></li>
             <li><a href="#cautions-sec" class="toc-link" data-translate-key="toc_sec7">✔ ముఖ్యమైన జాగ్రత్తలు</a></li>
             <li><a href="#faq-sec" class="toc-link" data-translate-key="toc_sec8">✔ తరచుగా అడిగే ప్రశ్నలు</a></li>
-            <li><a href="#official-portal-sec" class="toc-link" style="color: var(--primary); font-weight:700;" data-translate-key="toc_sec9">✔ అధికారిక & ప్రత్యామ్నాయ లింకులు</a></li>
+            <li><a href="#official-portal-sec" class="toc-link toc-portal-link" data-translate-key="toc_sec9">✔ అధికారిక &amp; ప్రత్యామ్నాయ లింకులు</a></li>
           </ul>
 
-          <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border-light); text-align: center;">
+          <div class="toc-print-box">
             <button onclick="window.print()" class="tag-btn tag-btn-small" data-translate-key="btn_print_guide">
               🖨️ ఈ గైడ్‌ను ప్రింట్ / సేవ్ చేయండి
             </button>
@@ -222,49 +222,47 @@
     };
 
     function renderGuideContent(data, lang) {
+      if (!data) return;
+
       const isEn = lang === 'en';
-      const title = isEn ? (data.title_en || data.title_te) : data.title_te;
-      const sub = isEn ? (data.subtitle_en || data.subtitle_te) : data.subtitle_te;
-      const about = isEn ? (data.about_en || data.about_te) : data.about_te;
-      const cat = isEn ? (data.category_en || data.category_te) : data.category_te;
 
-      document.getElementById('pageHtmlTitle').textContent = `${title} | ${isEn ? 'Mana AP Sevalu' : 'మన AP సేవలు'}`;
-      document.getElementById('guideBreadcrumbTitle').textContent = title;
-      document.getElementById('guideBreadcrumbHome').textContent = isEn ? 'Home' : 'హోమ్';
-      
-      const parentLink = document.getElementById('guideParentCategoryLink');
-      if (parentLink) {
-        parentLink.textContent = cat || (isEn ? 'Identity' : 'గుర్తింపు పత్రాలు');
-        parentLink.href = data.category_url || 'identity.html';
-      }
+      // 1. Titles & Breadcrumbs
+      const pageTitle = isEn && data.title_en ? data.title_en : data.title_te;
+      const subtitle = isEn && data.subtitle_en ? data.subtitle_en : data.subtitle_te;
+      const categoryName = isEn && data.category_en ? data.category_en : data.category_te;
+      const categoryUrl = data.category_url || 'identity.html';
 
-      document.getElementById('guideHeroTitle').innerHTML = `${data.icon || '📄'} ${title}`;
-      document.getElementById('guideHeroSubtitle').textContent = sub;
+      document.getElementById('pageHtmlTitle').textContent = `${pageTitle} | మన AP సేవలు`;
+      document.getElementById('guideHeroTitle').innerHTML = `<span>${data.icon || '📄'}</span> <span>${pageTitle}</span>`;
+      document.getElementById('guideHeroSubtitle').textContent = subtitle;
 
-      const container = document.getElementById('guideDynamicContainer');
-      if (!container) return;
+      const parentCategoryLink = document.getElementById('guideParentCategoryLink');
+      parentCategoryLink.textContent = categoryName;
+      parentCategoryLink.href = categoryUrl;
+      document.getElementById('guideBreadcrumbTitle').textContent = isEn ? 'Guide' : 'గైడ్';
 
-      // Construct Sections
+      // 2. Documents Checklist Render
       let docsHtml = '';
-      if (data.documents) {
+      if (data.documents && typeof data.documents === 'object') {
         for (const [category, items] of Object.entries(data.documents)) {
           docsHtml += `
-            <div style="background: var(--bg-main); border: 1px solid var(--border-light); padding: 18px; border-radius: var(--radius-md); margin-bottom: 12px;">
-              <h4 style="color: var(--primary); margin-bottom: 8px;">📋 ${category}</h4>
-              <ul style="font-size: 0.92rem; color: var(--text-secondary); padding-left: 18px; line-height: 1.6;">
-                ${items.map(it => `<li>${it}</li>`).join('')}
+            <div class="card-p-18">
+              <h4 class="text-primary-mb8">📋 ${category}</h4>
+              <ul class="doc-checklist-ul">
+                ${items.map(item => `<li>• ${item}</li>`).join('')}
               </ul>
             </div>
           `;
         }
       }
 
+      // 3. Steps Render
       let stepsHtml = '';
-      if (data.steps) {
+      if (data.steps && Array.isArray(data.steps)) {
         stepsHtml = data.steps.map(s => `
           <div class="step-card">
-            <div class="step-number-badge">${s.num}</div>
-            <div class="step-details">
+            <div class="step-badge">${s.num}</div>
+            <div class="step-content">
               <h4>${s.title}</h4>
               <p>${s.desc}</p>
             </div>
@@ -272,47 +270,50 @@
         `).join('');
       }
 
+      // 4. Downloads & Services Render
       let servicesListHtml = '';
-      if (data.services_list) {
-        servicesListHtml = data.services_list.map(sl => `
-          <div style="background: var(--bg-main); border: 1px solid var(--border-light); padding: 18px; border-radius: var(--radius-md);">
-            <h4 style="margin-bottom: 6px;">⚡ ${sl.name}</h4>
-            <p style="font-size: 0.88rem; color: var(--text-secondary);">${sl.desc}</p>
+      if (data.services && Array.isArray(data.services)) {
+        servicesListHtml = data.services.map(sl => `
+          <div class="card-p-18">
+            <h4 class="mb-6">⚡ ${sl.name}</h4>
+            <p class="fs-088-muted">${sl.desc}</p>
           </div>
         `).join('');
       }
 
+      // 5. FAQs Render
       let faqsHtml = '';
-      if (data.faqs) {
-        faqsHtml = data.faqs.map((f, idx) => `
-          <div class="faq-item ${idx === 0 ? 'open' : ''}">
+      if (data.faqs && Array.isArray(data.faqs)) {
+        faqsHtml = data.faqs.map(f => `
+          <div class="faq-item">
             <button class="faq-question">
               <span>${f.q}</span>
-              <span class="faq-chevron">▼</span>
+              <span class="faq-icon">+</span>
             </button>
-            <div class="faq-answer">${f.a}</div>
+            <div class="faq-answer">
+              <p>${f.a}</p>
+            </div>
           </div>
         `).join('');
       }
 
-      // Alternative Links Grid
+      // 6. Alternative Mirrors Render
       let altLinksHtml = '';
-      if (data.alternative_links && data.alternative_links.length > 0) {
+      if (data.alt_links && Array.isArray(data.alt_links) && data.alt_links.length > 0) {
         altLinksHtml = `
-          <div style="margin-top: 24px; padding-top: 20px; border-top: 1px dashed rgba(255,255,255,0.25);">
-            <h4 style="color: #fff; margin-bottom: 12px; font-size: 1.05rem; display: flex; align-items: center; justify-content: center; gap: 8px;">
-              <span>🌐</span>
-              <span>${isEn ? 'Alternative Working Official Mirrors & Portals' : 'ప్రత్యామ్నాయ వర్కింగ్ సర్వర్లు & మిర్రర్ లింకులు (Alternative Official Portals)'}</span>
+          <div class="alt-links-top-box">
+            <h4 class="alt-links-title">
+              <span>⚡</span> <span>${isEn ? 'Alternative Mirror Servers (Zero Downtime)' : 'ప్రత్యామ్నాయ సర్వర్ లింకులు (ఫాస్ట్ గేట్‌వేలు)'}</span>
             </h4>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; text-align: left;">
-              ${data.alternative_links.map(alt => `
-                <a href="${alt.url}" target="_blank" rel="noopener noreferrer" style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); padding: 14px; border-radius: 8px; color: #fff; text-decoration: none; display: block; transition: all 0.2s ease;">
-                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-                    <span style="font-size: 0.75rem; background: var(--secondary); color: #fff; padding: 2px 8px; border-radius: 4px; font-weight: 700;">${alt.badge || (isEn ? 'Server' : 'సర్వర్')}</span>
-                    <span style="font-size: 0.85rem;">↗</span>
+            <div class="alt-links-grid">
+              ${data.alt_links.map(alt => `
+                <a href="${alt.url}" target="_blank" rel="noopener noreferrer" class="alt-link-card">
+                  <div class="alt-link-header">
+                    <span class="alt-badge">${alt.badge || (isEn ? 'Server' : 'సర్వర్')}</span>
+                    <span class="fs-085">↗</span>
                   </div>
-                  <div style="font-weight: 700; font-size: 0.92rem; margin-bottom: 4px;">${alt.name}</div>
-                  <div style="font-size: 0.8rem; opacity: 0.85;">${alt.desc}</div>
+                  <div class="alt-link-title">${alt.name}</div>
+                  <div class="alt-link-desc">${alt.desc || (isEn ? 'Official Alternate Gateway' : 'అధికారిక ప్రత్యామ్నాయ గేట్‌వే')}</div>
                 </a>
               `).join('')}
             </div>
@@ -320,21 +321,23 @@
         `;
       }
 
-      container.innerHTML = `
-        <!-- Section 1: About -->
+      // Dynamic Flow HTML Assembly
+      const dynamicContainer = document.getElementById('guideDynamicContainer');
+      dynamicContainer.innerHTML = `
+        <!-- Section 1: About & Purpose -->
         <section id="about-sec" class="guide-section-block">
           <h2 class="guide-block-title">
             <span>1.</span>
-            <span>${isEn ? 'About & Purpose' : 'ఏమిటి? & ఎందుకు అవసరం?'}</span>
+            <span>${isEn ? 'About & Purpose of Service' : 'సేవ లేదా పథకం ముఖ్య ఉద్దేశ్యం'}</span>
           </h2>
-          <p class="guide-block-text">${about}</p>
+          <p class="guide-block-text">${isEn && data.about_en ? data.about_en : data.about_te}</p>
         </section>
 
-        <!-- Section 2: Eligibility -->
+        <!-- Section 2: Eligibility Criteria -->
         <section id="eligibility-sec" class="guide-section-block">
           <h2 class="guide-block-title">
             <span>2.</span>
-            <span>${isEn ? 'Who is Eligible? (Checklist)' : 'ఎవరు పొందవచ్చు? (అర్హతల చెక్‌లిస్ట్)'}</span>
+            <span>${isEn ? 'Who is Eligible? (Eligibility Criteria)' : 'ఎవరు అర్హులు? (అర్హతలు & నిబంధనలు)'}</span>
           </h2>
           <div class="checklist-card-grid">
             ${data.eligibility.map(e => `
@@ -353,7 +356,7 @@
             <span>${isEn ? 'Required Documents Checklist' : 'అవసరమైన పత్రాల జాబితా (Documents Checklist)'}</span>
           </h2>
           <p class="guide-block-text">${isEn ? 'Keep the following authentic documents ready before applying:' : 'దరఖాస్తు సమయంలో క్రింది పత్రాలను సిద్ధంగా ఉంచుకోండి:'}</p>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+          <div class="grid-doc-checklist">
             ${docsHtml}
           </div>
         </section>
@@ -375,7 +378,7 @@
             <span>5.</span>
             <span>${isEn ? 'Downloads & Key e-Services' : 'డౌన్‌లోడ్‌లు & ముఖ్య సేవలు'}</span>
           </h2>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px;">
+          <div class="grid-downloads-services">
             ${servicesListHtml}
           </div>
         </section>
@@ -386,7 +389,7 @@
             <span>6.</span>
             <span>${isEn ? 'Government Guidelines & Rules' : 'ప్రభుత్వ నిబంధనలు & నియమాలు'}</span>
           </h2>
-          <ul style="font-size: 0.98rem; line-height: 1.8; color: var(--text-secondary); padding-left: 20px;">
+          <ul class="rules-list-flow">
             ${data.rules.map(r => `<li>${r}</li>`).join('')}
           </ul>
         </section>
@@ -395,7 +398,7 @@
         <section id="cautions-sec" class="guide-section-block">
           <div class="alert-caution-box">
             <h4>⚠️ ${isEn ? 'Crucial Citizen Precautions & Anti-Scam Warnings' : 'ముఖ్యమైన భద్రతా జాగ్రత్తలు & హెచ్చరికలు'}</h4>
-            <ul style="padding-left: 20px; font-size: 0.95rem; line-height: 1.7; margin-top: 8px;">
+            <ul class="cautions-list-flow">
               ${data.cautions.map(c => `<li>${c}</li>`).join('')}
             </ul>
           </div>
@@ -428,8 +431,8 @@
           ${altLinksHtml}
 
           <!-- Helpful SSL / Privacy Error Access Tip -->
-          <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; padding: 14px; margin-top: 20px; text-align: left; font-size: 0.86rem; line-height: 1.6;">
-            <div style="font-weight: 700; color: #f59e0b; margin-bottom: 4px;">💡 ${isEn ? 'Server Access Tip / If you see a Privacy Error:' : 'వెబ్‌సైట్ ఓపెన్ కాకపోతే లేదా "Privacy Error" వస్తే సూచన:'}</div>
+          <div class="ssl-access-tip-box">
+            <div class="ssl-tip-title">💡 ${isEn ? 'Server Access Tip / If you see a Privacy Error:' : 'వెబ్‌సైట్ ఓపెన్ కాకపోతే లేదా "Privacy Error" వస్తే సూచన:'}</div>
             <div>
               ${isEn ? 'Some state government portals (.ap.gov.in) may show a security notice during certificate renewal. You can click "Advanced" -> "Proceed to site", or simply use our Alternative Server 2 / Mirror Links above!' : 'కొన్ని రాష్ట్ర ప్రభుత్వ పోర్టల్స్ (.ap.gov.in) లో సెక్యూరిటీ సర్టిఫికెట్ అప్‌డేట్స్ జరుగుతున్నప్పుడు బ్రౌజర్‌లో హెచ్చరిక రావచ్చు. అప్పుడు బ్రౌజర్‌లో <b>"Advanced"</b> బటన్ నొక్కి <b>"Proceed to site"</b> క్లిక్ చేయండి లేదా పైన ఇచ్చిన <b>ప్రత్యామ్నాయ సర్వర్ 2 / మిర్రర్ లింక్</b> ద్వారా సులభంగా ఓపెన్ చేసుకోండి.'}
             </div>
@@ -459,4 +462,3 @@
   </script>
 </body>
 </html>
-

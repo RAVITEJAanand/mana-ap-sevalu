@@ -2069,3 +2069,162 @@ main {
   color: #7dd3fc;
 }
 
+.legal-top-banner {
+  margin-top: 0;
+  margin-bottom: 32px;
+}
+
+.legal-subpoints {
+  margin-top: 8px;
+  font-size: 0.84rem;
+}
+
+.pt-0 {
+  padding-top: 0 !important;
+}
+
+.toc-portal-link {
+  color: var(--primary) !important;
+  font-weight: 700 !important;
+}
+
+.toc-print-box {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-light);
+  text-align: center;
+}
+
+.card-p-18 {
+  background: var(--bg-main);
+  border: 1px solid var(--border-light);
+  padding: 18px;
+  border-radius: var(--radius-md);
+}
+
+.text-primary-mb8 {
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+.doc-checklist-ul {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  padding-left: 18px;
+  line-height: 1.6;
+}
+
+.fs-088-muted {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+}
+
+.alt-links-top-box {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px dashed rgba(255,255,255,0.25);
+}
+
+.alt-links-title {
+  color: #fff;
+  margin-bottom: 12px;
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.alt-links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+  text-align: left;
+}
+
+.alt-link-card {
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 14px;
+  border-radius: 8px;
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  transition: all 0.2s ease;
+}
+
+.alt-link-card:hover {
+  background: rgba(255,255,255,0.22);
+  transform: translateY(-2px);
+}
+
+.alt-link-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.alt-badge {
+  font-size: 0.75rem;
+  background: var(--secondary);
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+.alt-link-title {
+  font-weight: 700;
+  font-size: 0.92rem;
+  margin-bottom: 4px;
+}
+
+.alt-link-desc {
+  font-size: 0.8rem;
+  opacity: 0.85;
+}
+
+.grid-doc-checklist {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.grid-downloads-services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.rules-list-flow {
+  font-size: 0.98rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  padding-left: 20px;
+}
+
+.cautions-list-flow {
+  padding-left: 20px;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-top: 8px;
+}
+
+.ssl-access-tip-box {
+  background: rgba(0,0,0,0.3);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 8px;
+  padding: 14px;
+  margin-top: 20px;
+  text-align: left;
+  font-size: 0.86rem;
+  line-height: 1.6;
+}
+
+.ssl-tip-title {
+  font-weight: 700;
+  color: #f59e0b;
+  margin-bottom: 4px;
+}
+
