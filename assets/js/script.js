@@ -760,3 +760,56 @@ function initCitizenFeedbackSystem() {
 document.addEventListener('DOMContentLoaded', () => {
   initCitizenFeedbackSystem();
 });
+
+
+// --------------------------------------------------------------------------
+// 7. Back to Top Button & Keyboard '/' Shortcut
+// --------------------------------------------------------------------------
+function initBackToTopAndKeyboardShortcuts() {
+  // Create Back to Top Button
+  if (!document.getElementById('backToTopBtn')) {
+    const bttBtn = document.createElement('button');
+    bttBtn.id = 'backToTopBtn';
+    bttBtn.className = 'back-to-top-btn';
+    bttBtn.setAttribute('aria-label', 'Back to Top');
+    bttBtn.innerHTML = '⬆️';
+    document.body.appendChild(bttBtn);
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        bttBtn.classList.add('visible');
+      } else {
+        bttBtn.classList.remove('visible');
+      }
+    });
+
+    bttBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // Keyboard '/' shortcut for search
+  const searchInput = document.getElementById('globalSearchInput');
+  if (searchInput) {
+    document.addEventListener('keydown', (e) => {
+      if (e.key === '/' && document.activeElement !== searchInput) {
+        e.preventDefault();
+        searchInput.focus();
+        searchInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  }
+
+  // Setup WhatsApp share button on service-detail page
+  const shareBtn = document.getElementById('shareGuideWhatsAppBtn');
+  if (shareBtn) {
+    const title = document.getElementById('guideDetailTitle') ? document.getElementById('guideDetailTitle').textContent : 'మన AP సేవలు గైడ్';
+    const text = encodeURIComponent('🏛️ ' + title + ' పూర్తి వివరాలు & దరఖాస్తు విధానం ఇక్కడ చూడండి:
+👉 ' + window.location.href);
+    shareBtn.href = 'https://api.whatsapp.com/send?text=' + text;
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initBackToTopAndKeyboardShortcuts();
+});
