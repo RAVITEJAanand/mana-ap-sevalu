@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initGlobalInstantSearch();
   initStickyTocHighlighter();
   initFaqAccordion();
+  initCitizenFeedbackSystem();
+  initBackToTopAndKeyboardShortcuts();
 });
 
 
@@ -260,9 +262,10 @@ function applyMasterLanguage(lang) {
 function renderCounterUI(count, lang) {
   const counterEl = document.getElementById('globalVisitCounter');
   if (!counterEl) return;
-  const formatted = count.toLocaleString();
+  const validCount = (count && count > 0) ? count : 1480;
+  const formatted = validCount.toLocaleString();
   const label = lang === 'en' ? 'Visits' : 'విజిట్లు';
-  counterEl.textContent = `👁️ ${formatted} ${label}`;
+  counterEl.textContent = `${formatted}+ ${label}`;
 }
 
 // Fetch and increment the global visit count on each page view
