@@ -203,8 +203,9 @@ const appRenderer = (function () {
       badge.className = 'save-status-badge unsaved';
       text.textContent = 'Unsaved Changes';
     } else {
-      badge.className = 'save-status-badge saved';
-      text.textContent = 'All Changes Synced';
+      badge.className = 'save-status-badge unsaved';
+      badge.style.background = '#f59e0b';
+      text.textContent = 'Local Tested 🟡 (Ready to Sync)';
     }
   }
 
@@ -225,19 +226,21 @@ const appRenderer = (function () {
       toast.style.transform = 'translateY(10px)';
       toast.style.transition = 'all 0.3s';
       setTimeout(() => toast.remove(), 300);
-    }, 3200);
+    }, 3500);
   }
 
   async function manualSync() {
     const btn = document.getElementById('btnSyncGitHub');
+    const badge = document.getElementById('saveStatusIndicator');
     const statusText = document.getElementById('saveStatusText');
-    if (btn) { btn.disabled = true; btn.querySelector('span:last-child').textContent = 'Syncing...'; }
+    if (btn) { btn.disabled = true; btn.querySelector('span:last-child').textContent = 'Pushing to GitHub...'; }
     if (statusText) statusText.textContent = '⏳ Pushing to GitHub...';
 
     if (window.electronAPI && window.electronAPI.gitPush) {
       const res = await window.electronAPI.gitPush();
       if (res && res.success) {
-        showToast('✅ Live website updated! Changes are now live on ravitejaanand.github.io', 'success');
+        showToast('✅ All tested changes are now live on ravitejaanand.github.io!', 'success');
+        if (badge) { badge.className = 'save-status-badge saved'; badge.style.background = ''; }
         if (statusText) statusText.textContent = 'Live Synced ✅';
       } else {
         showToast('⚠️ Sync issue: ' + (res ? res.error : 'Unknown error'), 'error');

@@ -161,19 +161,14 @@ ipcMain.handle('write-json', async (event, filename, data) => {
       fs.writeFileSync(backupPath, existingContent, 'utf-8');
     }
 
-    // Step 2: Write newly updated JSON data
+    // Step 2: Write newly updated JSON data locally
     const formattedJson = JSON.stringify(data, null, 2);
     fs.writeFileSync(targetFile, formattedJson, 'utf-8');
 
-    // Step 3: AUTO PUSH to GitHub for real-time website sync
-    const pushResult = autoGitPush(`${baseNameWithoutExt}.json`);
-
     return { 
       success: true, 
-      message: pushResult.success
-        ? `✅ Saved + Pushed to GitHub Live Site! (${baseNameWithoutExt}.json)`
-        : `✅ Saved locally. Push note: ${pushResult.error}`,
-      synced: pushResult.success,
+      message: `✅ Saved locally! Preview and test on Five Server (http://localhost:5555/). Click "Sync to Live Site" to push to GitHub.`,
+      synced: false,
       timestamp: new Date().toISOString()
     };
   } catch (err) {
