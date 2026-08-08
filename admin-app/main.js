@@ -9,13 +9,16 @@ const PROJECT_ROOT = path.join(__dirname, '..');
 // Auto Git Push after every save
 function autoGitPush(filename) {
   try {
-    // 0. Disable addIgnoredFile advice error in git config
     try {
       execSync('git config advice.addIgnoredFile false', { cwd: PROJECT_ROOT, stdio: 'pipe' });
-    } catch (cfgErr) {}
+    } catch (e0) {}
 
-    // 1. Stage website content files safely
-    execSync('git add data/ assets/ index.html pages/', { cwd: PROJECT_ROOT, stdio: 'pipe' });
+    // 1. Stage website files safely (without staging ignored admin-app/)
+    try {
+      execSync('git add data/ assets/ index.html pages/', { cwd: PROJECT_ROOT, stdio: 'pipe' });
+    } catch (e1) {
+      execSync('git add -u data/ assets/ index.html pages/', { cwd: PROJECT_ROOT, stdio: 'pipe' });
+    }
 
     // 2. Commit changes if present
     try {
@@ -24,18 +27,27 @@ function autoGitPush(filename) {
         stdio: 'pipe' 
       });
     } catch (commitErr) {
-      // Nothing to commit is a normal state
+      // Nothing to commit is normal if already up to date
     }
 
     // 3. Push to GitHub
-    execSync('git push origin main', { cwd: PROJECT_ROOT, stdio: 'pipe' });
-    return { success: true, message: `✅ ${filename || 'Content'} saved + synced to live site!` };
+    try {
+      execSync('git push origin main', { cwd: PROJECT_ROOT, stdio: 'pipe' });
+    } catch (pushErr) {
+      const pMsg = (pushErr.stderr ? pushErr.stderr.toString() : pushErr.message) || '';
+      if (!pMsg.includes('Everything up-to-date') && !pMsg.includes('up-to-date')) {
+        throw pushErr;
+      }
+    }
+
+    return { success: true, message: `✅ Live site updated with ${filename || 'changes'}!` };
   } catch (err) {
-    const errorMsg = (err.stderr ? err.stderr.toString() : err.message) || '';
-    if (errorMsg.includes('nothing to commit') || errorMsg.includes('up-to-date') || errorMsg.includes('Everything up-to-date')) {
+    const rawError = (err.stderr ? err.stderr.toString() : err.message) || '';
+    if (rawError.includes('nothing to commit') || rawError.includes('up-to-date') || rawError.includes('Everything up-to-date')) {
       return { success: true, message: 'Already up-to-date with GitHub.' };
     }
-    return { success: false, error: errorMsg };
+    const cleanError = rawError.replace(/warning:[^\n]*\n?/gi, '').trim() || 'Sync failed';
+    return { success: false, error: cleanError };
   }
 }
 
