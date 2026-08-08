@@ -519,19 +519,16 @@ function initCitizenFeedbackSystem() {
         <!-- Success Message Banner with Direct Instant Notification -->
         <div id="feedbackSuccessBanner" class="feedback-success-banner">
           <div style="font-size: 2.5rem; margin-bottom: 8px;">🎉</div>
-          <h4 style="font-weight: 800; font-size: 1.15rem; margin-bottom: 4px;">
-            ${isEn ? 'Thank You For Your Feedback!' : 'ధన్యవాదాలు! మీ ఫీడ్‌బ్యాక్ నమోదైంది!'}
+          <h4 style="font-weight: 800; font-size: 1.18rem; color: #16a34a; margin-bottom: 6px;">
+            ${isEn ? 'Thank You! Feedback Received!' : 'ధన్యవాదాలు! మీ ఫీడ్‌బ్యాక్ నమోదైంది!'}
           </h4>
-          <p style="font-size: 0.88rem; line-height: 1.6; margin-bottom: 14px;">
-            ${isEn ? 'Your suggestion has been recorded in our cloud system.' : 'మీ సలహా మా క్లౌడ్ సిస్టమ్‌లో భద్రపరచబడింది.'}
+          <p style="font-size: 0.92rem; line-height: 1.6; color: var(--text-primary); margin-bottom: 16px;">
+            ${isEn ? 'Your valuable suggestion has been sent directly to the portal admin email.' : 'మీ అమూల్యమైన సలహా నేరుగా మా అడ్మిన్ ఈమెయిల్ (Gmail) కి చేరింది.'}
           </p>
-          <div style="display: flex; flex-direction: column; gap: 8px; max-width: 280px; margin: 0 auto;">
-            <a id="fbWhatsAppNotifyBtn" href="#" target="_blank" class="btn-whatsapp-join" style="justify-content: center; font-size: 0.88rem; padding: 10px;">
-              <span>💬</span>
-              <span>${isEn ? 'Send via WhatsApp' : 'వాట్సాప్‌లో కూడా పంపండి'}</span>
-            </a>
-            <button id="feedbackDoneBtn" class="tag-btn" style="padding: 8px; border: 1px solid var(--border-medium); font-weight: 700;">
-              ${isEn ? 'Close' : 'సరే, ముగించు'}
+          <div style="display: flex; justify-content: center;">
+            <button id="feedbackDoneBtn" class="search-submit-btn" style="padding: 10px 24px; border-radius: var(--radius-md); font-weight: 700; font-size: 0.95rem;">
+              <span>✓</span>
+              <span>${isEn ? 'OK, Close' : 'సరే, ముగించు'}</span>
             </button>
           </div>
         </div>
@@ -595,9 +592,14 @@ function initCitizenFeedbackSystem() {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
+    const submitBtn = form.querySelector('.feedback-submit-btn');
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `<span>⏳</span> <span>${isEn ? 'Sending...' : 'పంపుతోంది...'}</span>`;
+    }
+
     const category = document.getElementById('fbCategory').value;
     const message = document.getElementById('fbMessage').value.trim();
-    
 
     const feedbackEntry = {
       timestamp: new Date().toISOString(),
@@ -607,7 +609,7 @@ function initCitizenFeedbackSystem() {
       name: 'Anonymous Citizen'
     };
 
-    // 1. Submit to FormSubmit.co for Direct Instant Gmail Delivery to steja1343@gmail.com (Works on GitHub Pages & Everywhere)
+    // 1. Submit directly to Gmail (steja1343@gmail.com) via FormSubmit
     fetch('https://formsubmit.co/ajax/steja1343@gmail.com', {
       method: 'POST',
       headers: { 
@@ -616,34 +618,17 @@ function initCitizenFeedbackSystem() {
       },
       body: JSON.stringify({
         _subject: '💬 మన AP సేవలు - కొత్త పౌర ఫీడ్‌బ్యాక్ (' + currentRating + ' Stars)',
-        Rating: currentRating + ' Stars',
+        _captcha: 'false',
+        _template: 'table',
+        Rating: currentRating + ' Stars ★',
         Category: category,
-        Message: message,
-        Portal: 'Mana AP Sevalu Portal'
+        Citizen_Feedback: message,
+        Time: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
+        Portal: 'Mana AP Sevalu (మన AP సేవలు)'
       })
     }).then(res => res.json())
-      .then(data => console.log('Gmail Notification Sent:', data))
+      .then(data => console.log('Gmail Notification Status:', data))
       .catch(err => console.warn('FormSubmit notice:', err));
-
-    // 2. Also Submit to Netlify if hosted on Netlify
-    const params = new URLSearchParams();
-    params.append('form-name', 'citizen-feedback');
-    params.append('rating', currentRating + ' Stars');
-    params.append('category', category);
-    params.append('message', message);
-
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: params.toString()
-    }).catch(() => {});
-
-    // 3. Setup Direct WhatsApp Message
-    const waMsg = encodeURIComponent('🏛️ మన AP సేవలు ఫీడ్‌బ్యాక్:\n⭐ రేటింగ్: ' + currentRating + ' Stars\n📂 విభాగం: ' + category + '\n📝 సలహా: ' + message);
-    const waBtn = document.getElementById('fbWhatsAppNotifyBtn');
-    if (waBtn) {
-      waBtn.href = 'https://api.whatsapp.com/send?text=' + waMsg;
-    }
 
     // 2. Also save locally
     let allFeedbacks = JSON.parse(localStorage.getItem('mana_ap_feedbacks') || '[]');
