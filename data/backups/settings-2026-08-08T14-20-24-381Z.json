@@ -3,9 +3,9 @@
   "logo_path": "assets/images/mana_logo.svg",
   "theme_color": "#083344",
   "default_language": "te",
-  "enable_auto_backup": true,
   "admin_username": "admin",
   "admin_password_hash": "e64b78fc3bc91bebc7dcfda02138ae894071a5c7a284499604865ecd0427ecf2",
+  "enable_auto_backup": true,
   "backup_retention_days": 30,
-  "last_updated": "2026-08-08T14:20:24.380Z"
+  "last_updated": "2026-08-08T09:30:00.000Z"
 }
