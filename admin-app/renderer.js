@@ -226,6 +226,25 @@ const appRenderer = (function () {
     }, 3200);
   }
 
+  async function manualSync() {
+    const btn = document.getElementById('btnSyncGitHub');
+    const statusText = document.getElementById('saveStatusText');
+    if (btn) { btn.disabled = true; btn.querySelector('span:last-child').textContent = 'Syncing...'; }
+    if (statusText) statusText.textContent = '⏳ Pushing to GitHub...';
+
+    if (window.electronAPI && window.electronAPI.gitPush) {
+      const res = await window.electronAPI.gitPush();
+      if (res && res.success) {
+        showToast('✅ Live website updated! Changes are now live on ravitejaanand.github.io', 'success');
+        if (statusText) statusText.textContent = 'Live Synced ✅';
+      } else {
+        showToast('⚠️ Sync issue: ' + (res ? res.error : 'Unknown error'), 'error');
+        if (statusText) statusText.textContent = 'Sync Failed ⚠️';
+      }
+    }
+    if (btn) { btn.disabled = false; btn.querySelector('span:last-child').textContent = 'Sync to Live Site'; }
+  }
+
   return {
     init,
     onLoginSuccess,
@@ -234,7 +253,8 @@ const appRenderer = (function () {
     openModal,
     closeModal,
     setUnsaved,
-    showToast
+    showToast,
+    manualSync
   };
 })();
 

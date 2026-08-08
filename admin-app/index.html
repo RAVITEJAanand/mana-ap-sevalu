@@ -111,14 +111,20 @@
         <!-- Top Right Actions -->
         <div class="topbar-actions">
           
-          <!-- Unsaved Status Indicator -->
+          <!-- LIVE SYNC Status Indicator -->
           <div id="saveStatusIndicator" class="save-status-badge saved">
-            <span class="status-icon">✓</span>
-            <span id="saveStatusText">All Changes Synced</span>
+            <span class="pulse-dot" id="syncPulseDot"></span>
+            <span id="saveStatusText">Live Synced ✅</span>
           </div>
 
+          <!-- Manual Sync to Live Website Button -->
+          <button id="btnSyncGitHub" class="btn-top-action" title="Push all changes to Live Website NOW" onclick="appRenderer.manualSync()" style="background: rgba(34,197,94,0.2); border-color: var(--green); color: var(--green);">
+            <span>🚀</span>
+            <span>Sync to Live Site</span>
+          </button>
+
           <!-- Quick Website Preview -->
-          <button id="btnTopPreview" class="btn-top-action" title="Preview Public Website (Ctrl+P)">
+          <button id="btnTopPreview" class="btn-top-action" title="Preview Public Website">
             <span>🌐</span>
             <span>Live Site ↗</span>
           </button>

@@ -1,6 +1,27 @@
 const { app, BrowserWindow, ipcMain, dialog, shell } = require('electron');
 const path = require('path');
 const fs = require('fs');
+const { execSync } = require('child_process');
+
+// Root of the AP website (one level up from admin-app/)
+const PROJECT_ROOT = path.join(__dirname, '..');
+
+// Auto Git Push after every save
+function autoGitPush(filename) {
+  try {
+    execSync('git add .', { cwd: PROJECT_ROOT, stdio: 'pipe' });
+    execSync(`git commit -m "[Admin Auto-Sync] Updated ${filename} via Desktop Launcher"`, { cwd: PROJECT_ROOT, stdio: 'pipe' });
+    execSync('git push origin main', { cwd: PROJECT_ROOT, stdio: 'pipe' });
+    return { success: true, message: `✅ ${filename} saved + pushed to GitHub live site!` };
+  } catch (err) {
+    // If nothing to commit, that's fine
+    const msg = err.message || '';
+    if (msg.includes('nothing to commit') || msg.includes('up-to-date')) {
+      return { success: true, message: 'Already up-to-date with GitHub.' };
+    }
+    return { success: false, error: err.message };
+  }
+}
 
 let mainWindow = null;
 
@@ -98,14 +119,26 @@ ipcMain.handle('write-json', async (event, filename, data) => {
     const formattedJson = JSON.stringify(data, null, 2);
     fs.writeFileSync(targetFile, formattedJson, 'utf-8');
 
+    // Step 3: AUTO PUSH to GitHub for real-time website sync
+    const pushResult = autoGitPush(`${baseNameWithoutExt}.json`);
+
     return { 
       success: true, 
-      message: `Successfully saved ${baseNameWithoutExt}.json with automatic backup`,
+      message: pushResult.success
+        ? `✅ Saved + Pushed to GitHub Live Site! (${baseNameWithoutExt}.json)`
+        : `✅ Saved locally. Push note: ${pushResult.error}`,
+      synced: pushResult.success,
       timestamp: new Date().toISOString()
     };
   } catch (err) {
     return { success: false, error: err.message };
   }
+});
+
+// Manual Git Push (from UI button)
+ipcMain.handle('git-push', async () => {
+  const result = autoGitPush('all changes');
+  return result;
 });
 
 // 3. List Backups for a file or all files

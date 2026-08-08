@@ -15,5 +15,8 @@ contextBridge.exposeInMainWorld('electronAPI', {
   
   // Stats and External
   getAppStats: () => ipcRenderer.invoke('get-app-stats'),
-  openExternal: (url) => ipcRenderer.invoke('open-external', url)
+  openExternal: (url) => ipcRenderer.invoke('open-external', url),
+
+  // Real-time GitHub Sync
+  gitPush: () => ipcRenderer.invoke('git-push')
 });
