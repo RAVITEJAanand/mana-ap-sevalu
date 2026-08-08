@@ -644,6 +644,7 @@ function initCitizenFeedbackSystem() {
       const citizenName = nameInput && nameInput.value.trim() ? nameInput.value.trim() : 'Anonymous Citizen (అజ్ఞాత పౌరుడు)';
       const message = document.getElementById('fbMessage').value.trim();
 
+      // 1. Send to Admin Gmail via FormSubmit
       fetch('https://formsubmit.co/ajax/e0db48c0cd01d1c64f761839acd89dee', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
@@ -658,8 +659,40 @@ function initCitizenFeedbackSystem() {
           Time: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
           Portal: 'Mana AP Sevalu (మన AP సేవలు)'
         })
-      }).then(() => {})
-        .catch(() => {});
+      }).then(() => {}).catch(() => {});
+
+      // 2. Also save to JSONBin for Admin Desktop Launcher to read
+      const feedbackEntry = {
+        id: 'fb_' + Date.now(),
+        name: citizenName,
+        category: category,
+        message: message,
+        rating: currentRating,
+        time: new Date().toISOString(),
+        timeIST: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
+        portal: 'Mana AP Sevalu'
+      };
+
+      // Get existing feedbacks from JSONBin, append, and update
+      const JSONBIN_ID = '6691f2efacd3cb34a8558c72';
+      const JSONBIN_KEY = '$2a$10$mana.ap.sevalu.feedback.key';
+
+      fetch('https://api.jsonbin.io/v3/b/' + JSONBIN_ID + '/latest', {
+        headers: { 'X-Master-Key': JSONBIN_KEY }
+      })
+      .then(r => r.json())
+      .then(existing => {
+        const list = Array.isArray(existing.record) ? existing.record : [];
+        list.unshift(feedbackEntry);
+        return fetch('https://api.jsonbin.io/v3/b/' + JSONBIN_ID, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json', 'X-Master-Key': JSONBIN_KEY },
+          body: JSON.stringify(list.slice(0, 200))
+        });
+      })
+      .catch(() => {
+        // If JSONBin fails, silently continue - email already sent
+      });
 
       formContainer.style.display = 'none';
       successBanner.style.display = 'block';

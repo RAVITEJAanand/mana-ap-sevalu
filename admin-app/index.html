@@ -68,6 +68,13 @@
           <span>FAQ Knowledgebase</span>
         </button>
 
+        <div class="nav-section-label">ANALYTICS &amp; ENGAGEMENT</div>
+        <button class="nav-item" data-module="feedbacks" id="nav-feedbacks">
+          <span class="nav-icon">📩</span>
+          <span>Citizen Feedbacks</span>
+          <span class="nav-badge" id="badge-feedbacks" style="background: rgba(34,197,94,0.3); color: #22c55e;">Live</span>
+        </button>
+
         <div class="nav-section-label">SYSTEM &amp; ASSETS</div>
         <button class="nav-item" data-module="media" id="nav-media">
           <span class="nav-icon">🖼️</span>
@@ -200,6 +207,11 @@
           <!-- Populated by modules/settings.js -->
         </section>
 
+        <!-- View 12: Citizen Feedbacks (Live from JSONBin) -->
+        <section id="view-feedbacks" class="module-view">
+          <!-- Populated by modules/feedbacks.js -->
+        </section>
+
       </div>
 
     </main>
@@ -270,6 +282,7 @@
   <script src="modules/media.js"></script>
   <script src="modules/settings.js"></script>
   <script src="modules/preview.js"></script>
+  <script src="modules/feedbacks.js"></script>
   <script src="renderer.js"></script>
 
 </body>

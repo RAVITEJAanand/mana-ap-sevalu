@@ -17,7 +17,8 @@ const appRenderer = (function () {
     faqs: window.faqsModule,
     media: window.mediaModule,
     backups: window.backupsModule,
-    settings: window.settingsModule
+    settings: window.settingsModule,
+    feedbacks: window.feedbacksModule
   };
 
   function init() {
