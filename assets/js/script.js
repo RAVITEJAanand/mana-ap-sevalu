@@ -17,56 +17,149 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /* --------------------------------------------------------------------------
    2. Master Instant Full-Page Bilingual Translator (Telugu <-> English)
+   100% Deep DOM Coverage for Full-Page Language Switch
    -------------------------------------------------------------------------- */
-const UI_TRANSLATIONS = {
-  // Navigation & Branding
-  "brand_tagline": { te: "ఆంధ్రప్రదేశ్ డిజిటల్ పౌర సేవా మిత్ర (Mana AP Sevalu)", en: "Andhra Pradesh Digital Citizen Knowledge Portal" },
-  "nav_home": { te: "🏠 హోమ్", en: "🏠 Home" },
-  "nav_identity": { te: "🪪 గుర్తింపు పత్రాలు", en: "🪪 Identity Documents" },
-  "nav_schemes": { te: "🏛️ పథకాలు", en: "🏛️ Govt Schemes" },
-  "nav_jobs": { te: "💼 ఉద్యోగాలు", en: "💼 Jobs & Careers" },
-  "nav_farmers": { te: "🌾 రైతు సేవలు", en: "🌾 Farmer Portal" },
-  "nav_education": { te: "🎓 విద్య", en: "🎓 Education & CETs" },
-  "nav_bills": { te: "⚡ బిల్లులు", en: "⚡ Utility Bills" },
-  "nav_emergency": { te: "🚨 అత్యవసరం", en: "🚨 24x7 Emergency" },
-  
-  // Ticker & Hero
-  "ticker_label": { te: "🔔 తాజా ప్రకటనలు", en: "🔔 Live Updates" },
-  "hero_tag": { te: "✨ ఆంధ్రప్రదేశ్ పౌరుల సమగ్ర డిజిటల్ నాలెడ్జ్ గైడ్", en: "✨ Comprehensive AP Citizen Digital Knowledge Guide" },
-  "hero_heading": { te: "ప్రభుత్వ సేవలు, పథకాలు & ఉద్యోగాల పూర్తి సమాచారం ఒకే చోట", en: "Government Services, Welfare Schemes & Jobs Portal" },
-  "hero_subtext": { te: "అర్హతలు, పత్రాల చెక్‌లిస్ట్, స్టెప్ బై స్టెప్ దరఖాస్తు విధానం మరియు 100% పనిచేసే అధికారిక ప్రత్యామ్నాయ వర్కింగ్ లింకులు.", en: "Eligibility criteria, documents checklist, step-by-step application flows and 100% active official mirror links." },
-  
-  // Search
-  "search_btn": { te: "వెతకండి", en: "Search" },
-  "search_placeholder": { te: "ఆధార్, రేషన్ కార్డు, రైతు భరోసా, DSC, స్కాలర్‌షిప్ అని టైప్ చేయండి...", en: "Search Aadhaar, Rice card, Rythu Bharosa, DSC, Scholarships..." },
-  "cat_all": { te: "అన్ని రంగాలు", en: "All Categories" },
-  "cat_identity": { te: "గుర్తింపు పత్రాలు", en: "Identity Documents" },
-  "cat_schemes": { te: "సంక్షేమ పథకాలు", en: "Welfare Schemes" },
-  "cat_jobs": { te: "ఉద్యోగాలు", en: "Jobs & Careers" },
-  "cat_farmers": { te: "రైతు సేవలు", en: "Farmer Services" },
-  "cat_education": { te: "విద్య & ప్రవేశాలు", en: "Education & CETs" },
 
-  // Sections
-  "sec_categories_title": { te: "ప్రధాన సేవా రంగాలు (Service Categories)", en: "Key Service Categories" },
-  "sec_categories_sub": { te: "మీకు కావలసిన కేటగిరీని ఎంచుకుని పూర్తి మార్గదర్శకాలు మరియు అధికారిక పోర్టల్స్ వీక్షించండి", en: "Select a category to view detailed citizen guides and multi-server gateways" },
-  "sec_featured_title": { te: "అత్యంత ప్రాధాన్యత గల సేవలు (Featured Guides)", en: "Top Featured Citizen Services" },
-  "sec_featured_sub": { te: "లక్షలాది పౌరులు ప్రతిరోజూ వినియోగించే టాప్ గైడ్లు మరియు మల్టీ-సర్వర్ పోర్టల్స్", en: "Most visited citizen guides and working official portals" },
-  "btn_read_guide": { te: "పూర్తి గైడ్ చదవండి →", en: "Read Full Guide →" },
-  "btn_view_category": { te: "గైడ్ వీక్షించండి →", en: "View Guide →" },
+const DEEP_TRANSLATION_MAP = [
+  // Brand & Nav
+  ["మన AP సేవలు", "Mana AP Sevalu"],
+  ["ఆంధ్రప్రదేశ్ డిజిటల్ పౌర సేవా మిత్ర (Mana AP Sevalu)", "Andhra Pradesh Digital Citizen Knowledge Portal"],
+  ["ఆంధ్రప్రదేశ్ డిజిటల్ పౌర సేవా మిత్ర", "Andhra Pradesh Digital Citizen Knowledge Portal"],
+  ["ఆంధ్రప్రదేశ్ పౌర సేవల సమాచార వేదిక (Citizen Knowledge Portal)", "Andhra Pradesh Citizen Knowledge & Services Portal"],
+  ["ఆంధ్రప్రదేశ్ పౌర సేవల సమాచార వేదిక (Citizen Portal)", "Andhra Pradesh Citizen Knowledge & Services Portal"],
+  ["ఆంధ్రప్రదేశ్ పౌర సేవల సమాచార వేదిక", "Andhra Pradesh Citizen Knowledge & Services Portal"],
+  ["🏠 హోమ్", "🏠 Home"],
+  ["🪪 గుర్తింపు పత్రాలు", "🪪 Identity Docs"],
+  ["🏛️ పథకాలు", "🏛️ Govt Schemes"],
+  ["💼 ఉద్యోగాలు", "💼 Jobs & Careers"],
+  ["🌾 రైతు సేవలు", "🌾 Farmer Portal"],
+  ["🎓 విద్య", "🎓 Education & CETs"],
+  ["⚡ బిల్లులు", "⚡ Utility Bills"],
+  ["🚨 అత్యవసరం", "🚨 24x7 Emergency"],
+  ["హోమ్", "Home"],
 
-  // TOC (Sticky Box)
-  "toc_title": { te: "ఈ పేజీలో (Contents)", en: "In this page (Contents)" },
-  "toc_sec1": { te: "✔ ఏమిటి & ఉద్దేశ్యం?", en: "✔ 1. About & Purpose" },
-  "toc_sec2": { te: "✔ ఎవరు అర్హులు?", en: "✔ 2. Eligibility Criteria" },
-  "toc_sec3": { te: "✔ అవసరమైన పత్రాలు", en: "✔ 3. Required Documents" },
-  "toc_sec4": { te: "✔ స్టెప్ బై స్టెప్ విధానం", en: "✔ 4. Step-by-Step Flow" },
-  "toc_sec5": { te: "✔ డౌన్‌లోడ్‌లు & సేవలు", en: "✔ 5. Downloads & Services" },
-  "toc_sec6": { te: "✔ ప్రభుత్వ నియమాలు", en: "✔ 6. Official Govt Rules" },
-  "toc_sec7": { te: "✔ ముఖ్యమైన జాగ్రత్తలు", en: "✔ 7. Crucial Precautions" },
-  "toc_sec8": { te: "✔ తరచుగా అడిగే ప్రశ్నలు", en: "✔ 8. Common FAQs" },
-  "toc_sec9": { te: "✔ అధికారిక & ప్రత్యామ్నాయ లింకులు", en: "✔ 9. Official Working Portals" },
-  "btn_print_guide": { te: "🖨️ ఈ గైడ్‌ను ప్రింట్ / సేవ్ చేయండి", en: "🖨️ Print / Save Citizen Guide" }
-};
+  // Ticker & Emergency Speed Dials
+  ["తాజా ప్రకటనలు", "Live Updates"],
+  ["నూతన బియ్యం కార్డుల ఈ-కేవైసీ సచివాలయాల్లో అందుబాటులో ఉంది • గృహ జ్యోతి 200 యూనిట్లు ఉచిత విద్యుత్ జీరో బిల్లుల పరిశీలన!", "New Rice Card eKYC is active in Sachivalayams • Gruha Jyothi 200 Units Free Electricity Zero Bill Verification Active!"],
+  ["24x7 తక్షణ అత్యవసర నంబర్లు:", "24x7 Instant Emergency Numbers:"],
+  ["112 జాతీయ హెల్ప్‌లైన్", "112 National Helpline"],
+  ["100 పోలీస్", "100 Police"],
+  ["108 అంబులెన్స్", "108 Ambulance"],
+  ["101 ఫైర్", "101 Fire Force"],
+  ["1930 సైబర్ క్రైమ్", "1930 Cyber Crime"],
+  ["181 మహిళా హెల్ప్‌లైన్", "181 Women Helpline"],
+  ["1098 చైల్డ్‌లైన్", "1098 Childline"],
+  ["1902 సీఎం గ్రీవెన్స్", "1902 CM Grievance"],
+
+  // Hero Section
+  ["✨ ఆంధ్రప్రదేశ్ పౌరుల సమగ్ర డిజిటల్ నాలెడ్జ్ గైడ్", "✨ Comprehensive AP Citizen Digital Knowledge Guide"],
+  ["ప్రభుత్వ సేవలు, పథకాలు & ఉద్యోగాల పూర్తి సమాచారం ఒకే చోట", "Government Services, Welfare Schemes & Jobs in One Place"],
+  ["అర్హతలు, పత్రాల చెక్‌లిస్ట్, స్టెప్ బై స్టెప్ దరఖాస్తు విధానం మరియు 100% పనిచేసే అధికారిక ప్రత్యామ్నాయ వర్కింగ్ లింకులు.", "Eligibility criteria, document checklists, step-by-step application process, and 100% active official mirror links."],
+  ["వెతకండి", "Search"],
+  ["అన్ని రంగాలు", "All Categories"],
+  ["గుర్తింపు పత్రాలు", "Identity Documents"],
+  ["సంక్షేమ పథకాలు", "Welfare Schemes"],
+  ["ఉద్యోగాలు", "Jobs & Careers"],
+  ["రైతు సేవలు", "Farmer Services"],
+  ["విద్య & ప్రవేశాలు", "Education & Admissions"],
+  ["బిల్లులు & పన్నులు", "Utility Bills & Taxes"],
+
+  // Subpage Hero Banners
+  ["గుర్తింపు & పౌర ధృవీకరణ పత్రాల హబ్", "Identity & Citizen Verification Documents Hub"],
+  ["ఆంధ్రప్రదేశ్ సంక్షేమ పథకాలు & లబ్ధిదారుల సమాచారం", "Andhra Pradesh Welfare Schemes & Beneficiary Information"],
+  ["ఉద్యోగాలు, రిక్రూట్‌మెంట్లు & నోటిఫికేషన్ల హబ్", "Jobs, Recruitment & Notifications Hub"],
+  ["రైతు సేవలు, వ్యవసాయ పథకాలు & ఈ-క్రాప్ హబ్", "Farmer Services, Agriculture Schemes & E-Crop Hub"],
+  ["విద్య, అడ్మిషన్లు & స్కాలర్‌షిప్‌ల హబ్", "Education, Admissions & Scholarships Hub"],
+  ["విద్యుత్, మున్సిపల్ పన్నులు & బిల్లుల చెల్లింపుల హబ్", "Electricity, Municipal Taxes & Utility Bills Payment Hub"],
+  ["🚨 24x7 తక్షణ అత్యవసర హెల్ప్‌లైన్లు & రెస్పాన్స్ సేవలు", "🚨 24x7 Instant Emergency Helplines & Response Services"],
+  ["📜 పోర్టల్ నిబంధనలు & గోప్యతా విధానం", "📜 Portal Terms of Use & Privacy Policy"],
+  ["📞 సిటిజన్ సపోర్ట్ & సంప్రదింపుల కేంద్రం", "📞 Citizen Support & Contact Center"],
+  ["అత్యవసర హెల్ప్‌లైన్లు", "Emergency Helplines"],
+  ["పోర్టల్ నిబంధనలు", "Portal Terms"],
+
+  // Common Actions & Badges
+  ["పూర్తి గైడ్ చదవండి →", "Read Full Guide →"],
+  ["గైడ్ వీక్షించండి →", "View Guide →"],
+  ["🏛️ పోర్టల్ ↗", "🏛️ Official Portal ↗"],
+  ["పూర్తి వివరాలు ↗", "Full Details ↗"],
+  ["స్పాన్సర్డ్ / Advertisement", "Sponsored / Advertisement"],
+  ["మీ మొబైల్‌లోనే తాజా ప్రభుత్వ అప్‌డేట్స్ & జీవోలు పొందండి", "Get Latest Govt Updates & GOs Directly on Your Mobile"],
+  ["మన AP సేవలు అధికారిక ఉచిత వాట్సాప్ ఛానెల్‌లో చేరి తక్షణ అలర్ట్స్ అందుకోండి.", "Join our official updates channel and receive instant alerts."],
+  ["ఉచితంగా చేరండి", "Join Free"],
+  ["పూర్తిగా ఉచితం:", "100% Free Information:"],
+  ["స్వతంత్ర సమాచార వేదిక:", "Independent Knowledge Portal:"],
+
+  // Service Card Titles
+  ["ఆధార్ కార్డు అప్‌డేట్ & కొత్త నమోదు గైడ్", "Aadhaar Card Update & New Enrollment Guide"],
+  ["బియ్యం కార్డు (న్యూ రేషన్ కార్డు) & eKYC", "Rice Card (New Ration Card) & eKYC"],
+  ["రైతు భరోసా & అన్నదాత సుఖీభవ 2026", "Rythu Bharosa & Annadata Sukhibhava 2026"],
+  ["మెగా DSC 16,347 టీచర్ పోస్టుల భర్తీ", "Mega DSC 16,347 Teacher Recruitment 2026"],
+  ["గృహ జ్యోతి - 200 యూనిట్ల ఉచిత విద్యుత్", "Gruha Jyothi - 200 Units Free Electricity Scheme"],
+  ["డాక్టర్ వైఎస్సార్ ఆరోగ్యశ్రీ ట్రస్ట్ (రూ. 25 లక్షల ఉచిత వైద్యం)", "Dr YSR Aarogyasri Trust (Rs. 25 Lakhs Free Healthcare)"],
+  ["ఆంధ్రప్రదేశ్ పోలీస్ కానిస్టేబుల్ & SI రిక్రూట్‌మెంట్", "AP Police Constable & SI Recruitment"],
+  ["APPSC గ్రూప్ 1 & గ్రూప్ 2 సర్వీసెస్", "APPSC Group 1 & Group 2 Services"],
+  ["రైల్వే RRB అసిస్టెంట్ లోకో పైలట్ (ALP) & టెక్నీషియన్", "Railway RRB Assistant Loco Pilot (ALP) & Technician"],
+  ["SSC కంబైన్డ్ గ్రాడ్యుయేట్ లెవల్ (CGL / CHSL)", "SSC Combined Graduate Level (CGL / CHSL)"],
+  ["ఈ-క్రాప్ (e-Crop) పంట నమోదు & డిజిటల్ రికార్డు", "e-Crop Booking & Digital Crop Record"],
+  ["పీఎం కిసాన్ సమ్మాన్ నిధి & ఆధార్ సీడింగ్", "PM Kisan Samman Nidhi & Aadhaar Seeding"],
+  ["సబ్సిడీ వ్యవసాయ పనిముట్లు & డ్రిప్ ఇరిగేషన్", "Subsidized Farm Machinery & Drip Irrigation"],
+  ["పీఎం కుసుమ్ సౌర విద్యుత్ పంపుసెట్లు (PM KUSUM)", "PM KUSUM Solar Agriculture Pumpsets"],
+  ["పశు సంవర్ధక కిసాన్ క్రెడిట్ కార్డు (AH-KCC)", "Animal Husbandry Kisan Credit Card (AH-KCC)"],
+  ["జగనన్న విద్యా దీవెన (100% పూర్తి ఫీజు రీయింబర్స్‌మెంట్)", "Jagananna Vidya Deevena (100% Full Fee Reimbursement)"],
+  ["జగనన్న వసతి దీవెన (హాస్టల్ & మెస్ ఖర్చులు)", "Jagananna Vasathi Deevena (Hostel & Mess Expenses)"],
+  ["AP EAPCET (EAMCET) ఇంజనీరింగ్ & అగ్రికల్చర్ ప్రవేశాలు", "AP EAPCET (EAMCET) Engineering & Agriculture Admissions"],
+  ["పోస్ట్-మెట్రిక్ జాతీయ & రాష్ట్ర స్కాలర్‌షిప్‌లు (NSP)", "Post-Matric National & State Scholarships (NSP)"],
+  ["మున్సిపల్ ఆస్తి పన్ను & నీటి పన్ను", "Municipal Property Tax & Water Charges (CDMA AP)"],
+  ["LPG గ్యాస్ సిలిండర్ బుకింగ్ & దీపం పథకం", "LPG Gas Cylinder Booking & Deepam Scheme"],
+  ["AP పోలీస్ ఈ-చలాన్ చెల్లింపు & డిస్కౌంట్ ఆఫర్లు", "AP Police e-Challan Payment & Clearance"],
+  ["రవాణా శాఖ డ్రైవింగ్ లైసెన్స్ & వాహన రిజిస్ట్రేషన్ (AP RTA)", "Driving Licence & Vehicle Registration (AP RTA)"],
+  ["పాన్ కార్డు కొత్త దరఖాస్తు & ఆధార్ లింకింగ్ (UTIITSL / NSDL)", "New PAN Card Application & Instant e-PAN (UTIITSL)"],
+  ["ఓటర్ గుర్తింపు కార్డు (Voter ID / EPIC) & ఫారం-6 నమోదు", "Voter ID Card (EPIC) & Online Form-6 Enrollment"],
+
+  // Smart Calculator
+  ["స్మార్ట్ అర్హత కాలిక్యులేటర్", "Smart Eligibility Calculator"],
+  ["మీ వయస్సు, వృత్తి, భూమి మరియు ఆదాయ వివరాలను ఎంచుకుని మీకు ఏయే ప్రభుత్వ పథకాలు వర్తిస్తాయో తక్షణమే లెక్కించండి.", "Select your age, occupation, land, and income to instantly find which government schemes apply to you."],
+  ["వయస్సు వర్గం ఎంచుకోండి", "Select Age Group"],
+  ["18 నుండి 35 సంవత్సరాలు (యువత / ఉద్యోగార్థులు)", "18 to 35 Years (Youth / Job Aspirants)"],
+  ["35 నుండి 60 సంవత్సరాలు (కుటుంబ పెద్దలు / రైతులు)", "35 to 60 Years (Family Heads / Farmers)"],
+  ["60 సంవత్సరాలు పైబడిన వారు (సీనియర్ సిటిజన్లు)", "Above 60 Years (Senior Citizens)"],
+  ["వృత్తి / విద్యార్హత", "Occupation / Education"],
+  ["రైతు / కౌలు రైతు (వ్యవసాయం)", "Farmer / Tenant Farmer (Agriculture)"],
+  ["నిరుద్యోగి / గ్రాడ్యుయేట్ (ఉద్యోగాన్వేషణ)", "Unemployed / Graduate (Job Aspirant)"],
+  ["విద్యార్థి (పాఠశాల / కళాశాల)", "Student (School / College)"],
+  ["మహిళా కుటుంబ పెద్ద / స్వయం సహాయక సంఘం", "Woman Family Head / SHG Member"],
+  ["ఇతర వర్గం / సాధారణ పౌరుడు", "Other / General Citizen"],
+  ["వ్యవసాయ భూమి (ఎకరాలు)", "Agricultural Land (Acres)"],
+  ["భూమి లేదు (భూమిలేని నిరుపేద / పట్టణ పౌరుడు)", "No Land (Landless / Urban Citizen)"],
+  ["5 ఎకరాల లోపు (సన్నకారు రైతు)", "Below 5 Acres (Small Farmer)"],
+  ["5 ఎకరాలు పైబడి", "Above 5 Acres"],
+  ["వార్షిక కుటుంబ ఆదాయం", "Annual Family Income"],
+  ["రూ. 2.5 లక్షల లోపు (బియ్యం కార్డు అర్హులు)", "Below Rs. 2.5 Lakhs (Rice Card Eligible)"],
+  ["రూ. 2.5 లక్షల నుండి 5 లక్షలు", "Rs. 2.5 Lakhs to 5 Lakhs"],
+  ["రూ. 5 లక్షలు పైబడి", "Above Rs. 5 Lakhs"],
+  ["అర్హతగల పథకాలను లెక్కించండి", "Calculate Eligible Schemes"],
+
+  // Footer & Disclaimer
+  ["గుర్తింపు సేవలు", "Identity Services"],
+  ["ఆధార్ కార్డు గైడ్", "Aadhaar Card Guide"],
+  ["పాన్ కార్డు దరఖాస్తు", "PAN Card Application"],
+  ["ఓటర్ ఐడీ నమోదు", "Voter ID Registration"],
+  ["బియ్యం కార్డు సేవలు", "Rice Card Services"],
+  ["పోర్టల్ నిబంధనలు", "Portal Terms"],
+  ["పోర్టల్ రూల్స్ & నిబంధనలు", "Portal Rules & Terms"],
+  ["గోప్యతా విధానం (Privacy)", "Privacy Policy"],
+  ["బాధ్యతా ప్రకటన (Disclaimer)", "Disclaimer"],
+  ["సిటిజన్ సపోర్ట్ & గ్రీవెన్స్", "Citizen Support & Grievance"],
+  ["అత్యవసర హెల్ప్‌లైన్లు", "Emergency Helplines"],
+  ["112 - జాతీయ అత్యవసరం", "112 - National Emergency"],
+  ["100 - పోలీస్", "100 - Police"],
+  ["108 - అంబులెన్స్", "108 - Ambulance"],
+  ["1930 - సైబర్ క్రైమ్", "1930 - Cyber Crime"],
+  ["బాధ్యతా ప్రకటన & ఓనర్ డిస్క్లోజర్ (Safety Disclaimer & Owner Notice):", "Legal Disclaimer & Owner Disclosure Notice:"],
+  ["సలహాలు & ఫీడ్‌బ్యాక్ ఇవ్వండి", "Feedback & Suggestions"],
+  ["మొత్తం సందర్శనలు:", "Total Citizen Visits:"],
+  ["గమనిక: ఈ పోర్టల్ పౌరులకు అవగాహన కల్పించే స్వతంత్ర డిజిటల్ గైడ్. ప్రతి పేజీ చివర సంబంధిత అధికారిక ప్రభుత్వ మరియు ప్రత్యామ్నాయ సర్వర్ లింకులు అందించబడతాయి.", "Note: This portal is an independent digital knowledge guide for citizen awareness. Official government and mirror server links are provided at the end of every guide."]
+];
 
 function initMasterLanguageTranslator() {
   const langToggleBtn = document.getElementById('langToggleBtn');
@@ -98,48 +191,71 @@ function applyMasterLanguage(lang) {
     langToggleBtn.textContent = lang === 'te' ? '🌐 English' : '🌐 తెలుగు';
   }
 
-  // Update theme button text according to language
+  // Update theme button text
   const currentTheme = htmlTag.getAttribute('data-theme') || 'light';
   updateThemeButtonText(currentTheme);
 
-  // Update global visit counter (increment on each view)
-fetchAndUpdateVisitCount(lang);
+  // Update global visit counter
+  fetchAndUpdateVisitCount(lang);
 
-  // Translate elements with data-translate-key
-  document.querySelectorAll('[data-translate-key]').forEach(el => {
-    const key = el.getAttribute('data-translate-key');
-    if (UI_TRANSLATIONS[key] && UI_TRANSLATIONS[key][lang]) {
-      el.textContent = UI_TRANSLATIONS[key][lang];
-    }
-  });
+  // 1. Recursive Deep DOM Text Node Translation
+  function translateNode(node) {
+    if (node.nodeType === Node.TEXT_NODE) {
+      let text = node.nodeValue;
+      if (!text || text.trim() === '') return;
 
-  // 2. Translate Search Input Placeholder
-  const searchInput = document.getElementById('globalSearchInput');
-  if (searchInput && UI_TRANSLATIONS['search_placeholder']) {
-    searchInput.placeholder = UI_TRANSLATIONS['search_placeholder'][lang];
-  }
-
-  // 3. Translate elements with data-te / data-en
-  document.querySelectorAll('[data-te][data-en]').forEach(el => {
-    const text = el.getAttribute(`data-${lang}`);
-    if (text) {
-      el.textContent = text;
-    }
-  });
-
-  // 4. Translate Category Select Options
-  const catSelect = document.getElementById('searchCategorySelect');
-  if (catSelect) {
-    catSelect.querySelectorAll('option').forEach(opt => {
-      const val = opt.value;
-      const key = `cat_${val}`;
-      if (UI_TRANSLATIONS[key] && UI_TRANSLATIONS[key][lang]) {
-        opt.textContent = UI_TRANSLATIONS[key][lang];
+      if (node._originalTe === undefined) {
+        node._originalTe = text;
       }
-    });
-  }
-}
 
+      if (lang === 'en') {
+        let transformed = node._originalTe;
+        DEEP_TRANSLATION_MAP.forEach(([te, en]) => {
+          if (transformed.includes(te)) {
+            transformed = transformed.split(te).join(en);
+          }
+        });
+        node.nodeValue = transformed;
+      } else {
+        node.nodeValue = node._originalTe;
+      }
+    } else if (node.nodeType === Node.ELEMENT_NODE) {
+      if (['SCRIPT', 'STYLE', 'NOSCRIPT'].includes(node.tagName)) return;
+      
+      // Translate input placeholders
+      if (node.tagName === 'INPUT' && node.placeholder) {
+        if (!node._originalTePlaceholder) node._originalTePlaceholder = node.placeholder;
+        if (lang === 'en') {
+          let ph = node._originalTePlaceholder;
+          DEEP_TRANSLATION_MAP.forEach(([te, en]) => {
+            if (ph.includes(te)) ph = ph.split(te).join(en);
+          });
+          node.placeholder = ph;
+        } else {
+          node.placeholder = node._originalTePlaceholder;
+        }
+      }
+
+      // Translate select options
+      if (node.tagName === 'OPTION') {
+        if (!node._originalTeText) node._originalTeText = node.textContent;
+        if (lang === 'en') {
+          let optText = node._originalTeText;
+          DEEP_TRANSLATION_MAP.forEach(([te, en]) => {
+            if (optText.includes(te)) optText = optText.split(te).join(en);
+          });
+          node.textContent = optText;
+        } else {
+          node.textContent = node._originalTeText;
+        }
+      }
+
+      node.childNodes.forEach(child => translateNode(child));
+    }
+  }
+
+  translateNode(document.body);
+}
 // Render the global visit counter UI
 function renderCounterUI(count, lang) {
   const counterEl = document.getElementById('globalVisitCounter');
