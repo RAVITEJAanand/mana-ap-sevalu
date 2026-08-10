@@ -3,7 +3,7 @@
  * 100% Robust, Fast, Zero-Error Interactive Utilities
  */
 
-document.addEventListener('DOMContentLoaded', () => {
+function initAllModules() {
   initMasterLanguageTranslator();
   initThemeEngine();
   initFontResizer();
@@ -13,12 +13,13 @@ document.addEventListener('DOMContentLoaded', () => {
   initFaqAccordion();
   initCitizenFeedbackSystem();
   initBackToTopAndKeyboardShortcuts();
-});
+}
 
-// Also run immediate setup for non-deferred execution
-if (document.readyState === 'interactive' || document.readyState === 'complete') {
-  initCitizenFeedbackSystem();
-  initBackToTopAndKeyboardShortcuts();
+// Ensure all modules initialize regardless of when the script runs
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initAllModules);
+} else {
+  initAllModules();
 }
 
 /* --------------------------------------------------------------------------
@@ -93,7 +94,7 @@ function initFontResizer() {
 
   function applyFontSize(size) {
     document.documentElement.style.fontSize = size + 'px';
-    document.body.style.fontSize = size + 'px';
+    if (document.body) document.body.style.fontSize = size + 'px';
     localStorage.setItem('ap_portal_fontsize', size);
   }
 }
@@ -309,21 +310,29 @@ function renderCounterUI(count, lang) {
 }
 
 function fetchAndUpdateVisitCount(lang) {
-  const cached = parseInt(localStorage.getItem('mana_ap_true_global_count') || '0', 10);
+  var cached = parseInt(localStorage.getItem('mana_ap_true_global_count') || '0', 10);
   renderCounterUI(cached, lang);
 
-  fetch('https://counterapi.com/api/ravitejaanand.github.io/view/visits')
-    .then(r => r.json())
-    .then(d => {
-      if (d && d.count) {
-        localStorage.setItem('mana_ap_true_global_count', String(d.count));
-        renderCounterUI(d.count, lang);
+  var controller = new AbortController();
+  var timeoutId = setTimeout(function() { controller.abort(); }, 8000);
+
+  fetch('https://counterapi.com/api/manaapsevalu.netlify.app/view/visits', { signal: controller.signal })
+    .then(function(r) {
+      clearTimeout(timeoutId);
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    })
+    .then(function(d) {
+      var count = (d && typeof d.value === 'number') ? d.value : 0;
+      if (count >= 0) {
+        localStorage.setItem('mana_ap_true_global_count', String(count));
+        renderCounterUI(count, lang);
       }
     })
-    .catch(() => {
-      const stored = cached + 1;
-      localStorage.setItem('mana_ap_true_global_count', String(stored));
-      renderCounterUI(stored, lang);
+    .catch(function() {
+      clearTimeout(timeoutId);
+      // Use cached value without inflating
+      renderCounterUI(cached, lang);
     });
 }
 
@@ -359,7 +368,9 @@ function initGlobalInstantSearch() {
 
   if (!searchInput || !searchResultsBox) return;
 
-  fetch('data/guides.json')
+  // Resolve path relative to site root regardless of current page location
+  var basePath = window.location.pathname.indexOf('/pages/') !== -1 ? '../' : '';
+  fetch(basePath + 'data/guides.json')
     .then(res => res.json())
     .then(data => {
       SEARCH_DATABASE = Object.keys(data).map(key => {
@@ -434,7 +445,7 @@ function initGlobalInstantSearch() {
       const badge = currentLang === 'en' ? item.category_en : item.category_te;
 
       return `
-        <a href="service-detail.html?id=${item.id}" class="search-result-item">
+        <a href="${(window.location.pathname.indexOf('/pages/') !== -1 ? '' : 'pages/')}service-detail.html?id=${item.id}" class="search-result-item">
           <div class="result-left">
             <span class="result-icon">${item.icon}</span>
             <div>
@@ -615,21 +626,30 @@ function initCitizenFeedbackSystem() {
     };
   }
 
+  // Reset modal to initial state when closing
+  function resetAndCloseModal() {
+    modalOverlay.classList.remove('active');
+    if (formContainer) formContainer.style.display = 'block';
+    if (successBanner) successBanner.style.display = 'none';
+    // Re-enable submit button
+    var submitBtn = form ? form.querySelector('.feedback-submit-btn') : null;
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = '<span>📤</span> <span>ఫీడ్‌బ్యాక్ పంపించు</span>';
+    }
+  }
+
   if (closeBtn) {
-    closeBtn.onclick = function() {
-      modalOverlay.classList.remove('active');
-    };
+    closeBtn.onclick = resetAndCloseModal;
   }
 
   if (doneBtn) {
-    doneBtn.onclick = function() {
-      modalOverlay.classList.remove('active');
-    };
+    doneBtn.onclick = resetAndCloseModal;
   }
 
   if (modalOverlay) {
     modalOverlay.onclick = function(e) {
-      if (e.target === modalOverlay) modalOverlay.classList.remove('active');
+      if (e.target === modalOverlay) resetAndCloseModal();
     };
   }
 
@@ -713,7 +733,7 @@ function initBackToTopAndKeyboardShortcuts() {
     bttBtn.className = 'back-to-top-btn';
     bttBtn.setAttribute('aria-label', 'Back to Top');
     bttBtn.innerHTML = '⬆️';
-    document.body.appendChild(bttBtn);
+    if (document.body) document.body.appendChild(bttBtn);
 
     window.addEventListener('scroll', () => {
       if (window.scrollY > 200) {

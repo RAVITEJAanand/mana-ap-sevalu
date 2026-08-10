@@ -76,11 +76,13 @@ function initAutoDeadlinesTicker() {
    3. Server Health Pinger & Real-Time Gateway Ping
    -------------------------------------------------------------------------- */
 function initServerHealthPinger() {
-  const healthBadges = document.querySelectorAll('.server-health-indicator');
+  var healthBadges = document.querySelectorAll('.server-health-indicator');
+  var isEn = (localStorage.getItem('ap_portal_lang') || 'te') === 'en';
+  var statusText = isEn ? '100% Online Gateway' : '100% ఆన్‌లైన్ గేట్‌వే';
   healthBadges.forEach(badge => {
     badge.innerHTML = `
       <span style="display:inline-block; width:8px; height:8px; background:#22c55e; border-radius:50%; box-shadow:0 0 6px #22c55e; margin-right:4px;"></span>
-      <span style="color:#166534; font-weight:700; font-size:0.75rem;">100% ఆన్‌లైన్ గేట్‌వే</span>
+      <span style="color:#166534; font-weight:700; font-size:0.75rem;">${statusText}</span>
     `;
   });
 }
@@ -97,10 +99,16 @@ function initSmartEligibilityCalculator() {
   calcForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    const occupation = document.getElementById('calcOccupation').value;
-    const landStatus = document.getElementById('calcLand').value;
-    const age = parseInt(document.getElementById('calcAge').value || '25', 10);
-    const hasWhiteCard = document.getElementById('calcCard').value === 'yes';
+    var occEl = document.getElementById('calcOccupation');
+    var landEl = document.getElementById('calcLand');
+    var ageEl = document.getElementById('calcAge');
+    var cardEl = document.getElementById('calcCard');
+    if (!occEl || !landEl || !ageEl || !cardEl) return;
+
+    var occupation = occEl.value;
+    var landStatus = landEl.value;
+    var age = parseInt(ageEl.value || '25', 10);
+    var hasWhiteCard = cardEl.value === 'yes';
 
     const isEn = (localStorage.getItem('ap_portal_lang') || 'te') === 'en';
 
@@ -110,12 +118,12 @@ function initSmartEligibilityCalculator() {
     if (occupation === 'farmer' || landStatus === 'owns_land' || landStatus === 'tenant') {
       eligibleSchemes.push({
         name: isEn ? "Rythu Bharosa - PM Kisan (₹13,500/Year)" : "రైతు భరోసా - పీఎం కిసాన్ (ఏడాదికి ₹13,500)",
-        link: "pages/service-detail.html?id=rythu-bharosa",
+        link: "service-detail.html?id=rythu-bharosa",
         icon: "🌾"
       });
       eligibleSchemes.push({
         name: isEn ? "e-Crop Booking & 100% Free Crop Insurance" : "ఈ-క్రాప్ నమోదు & ఉచిత పంటల బీమా",
-        link: "pages/service-detail.html?id=e-crop",
+        link: "service-detail.html?id=e-crop",
         icon: "🛡️"
       });
     }
@@ -124,7 +132,7 @@ function initSmartEligibilityCalculator() {
     if (hasWhiteCard) {
       eligibleSchemes.push({
         name: isEn ? "Dr. YSR Aarogyasri (Free Healthcare up to ₹25 Lakhs)" : "డా. వైఎస్సార్ ఆరోగ్యశ్రీ (₹25 లక్షల వరకు ఉచిత వైద్యం)",
-        link: "pages/service-detail.html?id=aarogyasri",
+        link: "service-detail.html?id=aarogyasri",
         icon: "🏥"
       });
     }
@@ -133,7 +141,7 @@ function initSmartEligibilityCalculator() {
     if (hasWhiteCard) {
       eligibleSchemes.push({
         name: isEn ? "Gruha Jyothi (Up to 200 Units Free Domestic Electricity)" : "గృహ జ్యోతి (200 యూనిట్ల వరకు ఉచిత విద్యుత్)",
-        link: "pages/service-detail.html?id=gruha-jyothi",
+        link: "service-detail.html?id=gruha-jyothi",
         icon: "💡"
       });
     }
@@ -142,7 +150,7 @@ function initSmartEligibilityCalculator() {
     if (age >= 60 && hasWhiteCard) {
       eligibleSchemes.push({
         name: isEn ? "NTR Bharosa Social Security Pension (₹4,000/Month)" : "ఎన్టీఆర్ భరోసా వృద్ధాప్య పింఛను (నెలకు ₹4,000)",
-        link: "pages/service-detail.html?id=pension-kanuka",
+        link: "service-detail.html?id=pension-kanuka",
         icon: "👵"
       });
     }
@@ -151,7 +159,7 @@ function initSmartEligibilityCalculator() {
     if (occupation === 'student' && hasWhiteCard) {
       eligibleSchemes.push({
         name: isEn ? "Jagananna Vidya Deevena (100% Tuition Fee Reimbursement)" : "జగనన్న విద్యా దీవెన (100% పూర్తి ఫీజు రీయింబర్స్‌మెంట్)",
-        link: "pages/service-detail.html?id=vidya-deevena",
+        link: "service-detail.html?id=vidya-deevena",
         icon: "🎓"
       });
     }
@@ -160,7 +168,7 @@ function initSmartEligibilityCalculator() {
     if (age >= 18 && age <= 42) {
       eligibleSchemes.push({
         name: isEn ? "Mega DSC & APPSC Group-1 & 2 Government Jobs" : "మెగా DSC & APPSC గ్రూప్-1, 2 ప్రభుత్వ ఉద్యోగాలు",
-        link: "pages/service-detail.html?id=ap-mega-dsc",
+        link: "service-detail.html?id=ap-mega-dsc",
         icon: "💼"
       });
     }
